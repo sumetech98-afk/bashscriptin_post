@@ -1,0 +1,871 @@
+<!-- ===== BASH SCRIPTING BOOK POST - CYBERSUME FULL SCREEN BLACK EDITION ===== -->
+<!-- Isko Blogger Post Editor mein HTML mode mein paste karein -->
+
+<style>
+    /* ===== FULL SCREEN WRAPPER ===== */
+    .cyber-post-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 30px 40px 50px !important;
+        background: #000000 !important;
+        color: #ffffff;
+        border-radius: 0 !important;
+        box-sizing: border-box;
+    }
+    
+    /* ===== RESPONSIVE FULL SCREEN MARGINS ===== */
+    @media (max-width: 1200px) {
+        .cyber-post-wrapper {
+            padding: 25px 35px 45px !important;
+        }
+    }
+    
+    @media (max-width: 992px) {
+        .cyber-post-wrapper {
+            padding: 22px 30px 40px !important;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .cyber-post-wrapper {
+            padding: 18px 22px 35px !important;
+        }
+    }
+    
+    @media (max-width: 600px) {
+        .cyber-post-wrapper {
+            padding: 15px 18px 30px !important;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .cyber-post-wrapper {
+            padding: 12px 14px 25px !important;
+        }
+    }
+    
+    /* ===== CONTENT MAX WIDTH ===== */
+    .cyber-content {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0;
+    }
+    
+    /* ===== POST HEADER ===== */
+    .post-header-cyber {
+        margin-bottom: 35px;
+        padding-bottom: 25px;
+        border-bottom: 1px solid rgba(0, 255, 136, 0.08);
+        background: transparent;
+    }
+    
+    .post-badge {
+        display: inline-block;
+        padding: 6px 26px;
+        background: rgba(0, 255, 136, 0.08);
+        border: 1px solid #00ff88;
+        border-radius: 50px;
+        color: #00ff88;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 20px;
+    }
+    
+    .post-title-cyber {
+        font-size: 38px;
+        font-weight: 900;
+        line-height: 1.15;
+        color: #ffffff !important;
+        margin: 12px 0 18px;
+        letter-spacing: -0.5px;
+    }
+    
+    .post-title-cyber strong {
+        color: #00ff88;
+    }
+    
+    @media (max-width: 992px) {
+        .post-title-cyber {
+            font-size: 30px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .post-title-cyber {
+            font-size: 24px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .post-title-cyber {
+            font-size: 20px;
+        }
+    }
+    
+    /* ===== FEATURED BOX ===== */
+    .featured-box {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 35px;
+        background: #0a0a0a !important;
+        border: 1px solid rgba(0, 255, 136, 0.12);
+        border-radius: 18px;
+        padding: 32px 38px;
+        margin: 25px 0 38px;
+        justify-content: center;
+    }
+    
+    @media (max-width: 768px) {
+        .featured-box {
+            flex-direction: column;
+            text-align: center;
+            padding: 25px 22px;
+            gap: 22px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .featured-box {
+            padding: 20px 16px;
+        }
+    }
+    
+    .featured-image {
+        flex-shrink: 0;
+    }
+    
+    .featured-image img {
+        max-width: 220px;
+        height: auto;
+        border-radius: 14px;
+        border: 2px solid #00ff88;
+        transition: 0.3s;
+        background: #000000;
+    }
+    
+    .featured-image img:first-child {
+        max-width: 200px;
+    }
+    
+    .featured-image .download-btn-img {
+        max-width: 280px !important;
+        margin-top: 10px;
+        border: none !important;
+        border-radius: 10px !important;
+        transition: 0.3s;
+    }
+    
+    .featured-image .download-btn-img:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0 30px rgba(0, 255, 136, 0.15);
+    }
+    
+    @media (max-width: 768px) {
+        .featured-image img {
+            max-width: 180px;
+        }
+        .featured-image .download-btn-img {
+            max-width: 240px !important;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .featured-image img {
+            max-width: 150px;
+        }
+        .featured-image .download-btn-img {
+            max-width: 200px !important;
+        }
+    }
+    
+    .featured-image img:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0 40px rgba(0, 255, 136, 0.15);
+    }
+    
+    .featured-cta {
+        flex: 1;
+        text-align: center;
+    }
+    
+    .featured-cta p {
+        color: #b0b8c8 !important;
+        margin: 5px 0 12px !important;
+        font-size: 16px;
+    }
+    
+    .featured-cta .main-link {
+        display: inline-block;
+        padding: 15px 42px;
+        background: linear-gradient(135deg, #00ff88, #00cc77);
+        color: #000000 !important;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 16px;
+        text-decoration: none;
+        margin-top: 6px;
+        transition: all 0.3s ease;
+        letter-spacing: 0.5px;
+    }
+    
+    .featured-cta .main-link:hover {
+        transform: scale(1.04);
+        box-shadow: 0 0 35px rgba(0, 255, 136, 0.25);
+    }
+    
+    .featured-cta .small-note {
+        color: #6a7290 !important;
+        font-size: 13px;
+        margin-top: 12px !important;
+    }
+    
+    .image-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .price-tag {
+        display: inline-block;
+        padding: 4px 18px;
+        background: rgba(255, 204, 0, 0.1);
+        border: 1px solid #ffcc00;
+        border-radius: 50px;
+        color: #ffcc00;
+        font-size: 14px;
+        font-weight: 700;
+        margin-top: 5px;
+    }
+    
+    /* ===== HEADINGS ===== */
+    .cyber-post-wrapper h2 {
+        color: #ffffff !important;
+        font-size: 28px;
+        font-weight: 800;
+        margin-top: 40px;
+        margin-bottom: 18px;
+        border-left: 5px solid #00ff88;
+        padding-left: 20px;
+        line-height: 1.3;
+    }
+    
+    .cyber-post-wrapper h2#why {
+        border-left-color: #00d9ff;
+    }
+    
+    .cyber-post-wrapper h2#learn {
+        border-left-color: #ffcc00;
+    }
+    
+    .cyber-post-wrapper h2#who {
+        border-left-color: #ff6b6b;
+    }
+    
+    .cyber-post-wrapper h2#practical {
+        border-left-color: #00ff88;
+    }
+    
+    .cyber-post-wrapper h2#matters {
+        border-left-color: #00d9ff;
+    }
+    
+    .cyber-post-wrapper h2#start {
+        border-left-color: #ffcc00;
+    }
+    
+    @media (max-width: 992px) {
+        .cyber-post-wrapper h2 {
+            font-size: 26px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .cyber-post-wrapper h2 {
+            font-size: 24px;
+            padding-left: 16px;
+            margin-top: 35px;
+            margin-bottom: 16px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .cyber-post-wrapper h2 {
+            font-size: 20px;
+            padding-left: 14px;
+            margin-top: 28px;
+            margin-bottom: 14px;
+        }
+    }
+    
+    /* ===== PARAGRAPHS ===== */
+    .cyber-post-wrapper p {
+        color: #b0b8c8 !important;
+        font-size: 17px;
+        line-height: 1.95;
+        margin: 16px 0 20px;
+    }
+    
+    .cyber-post-wrapper p strong {
+        color: #00ff88;
+    }
+    
+    @media (max-width: 768px) {
+        .cyber-post-wrapper p {
+            font-size: 16px;
+            line-height: 1.85;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .cyber-post-wrapper p {
+            font-size: 15px;
+            line-height: 1.8;
+            margin: 14px 0 16px;
+        }
+    }
+    
+    /* ===== LISTS ===== */
+    .cyber-post-wrapper ul,
+    .cyber-post-wrapper ol {
+        color: #b0b8c8 !important;
+        font-size: 17px;
+        line-height: 2.3;
+        padding-left: 0;
+        margin: 14px 0 22px;
+        list-style: none;
+    }
+    
+    .cyber-post-wrapper ul li,
+    .cyber-post-wrapper ol li {
+        color: #b0b8c8 !important;
+        margin-bottom: 4px;
+        padding-left: 28px;
+        position: relative;
+    }
+    
+    .cyber-post-wrapper ul li::before {
+        content: "▸";
+        color: #00ff88;
+        position: absolute;
+        left: 0;
+        font-weight: 700;
+        font-size: 18px;
+    }
+    
+    .cyber-post-wrapper ol {
+        list-style: none;
+        counter-reset: item;
+    }
+    
+    .cyber-post-wrapper ol li {
+        counter-increment: item;
+        padding-left: 35px;
+    }
+    
+    .cyber-post-wrapper ol li::before {
+        content: counter(item) ".";
+        color: #00ff88;
+        position: absolute;
+        left: 0;
+        font-weight: 700;
+        font-size: 16px;
+    }
+    
+    @media (max-width: 480px) {
+        .cyber-post-wrapper ul,
+        .cyber-post-wrapper ol {
+            font-size: 15px;
+            line-height: 2.1;
+        }
+        .cyber-post-wrapper ul li,
+        .cyber-post-wrapper ol li {
+            padding-left: 24px;
+        }
+        .cyber-post-wrapper ol li {
+            padding-left: 30px;
+        }
+    }
+    
+    /* ===== TWO COLUMN LIST ===== */
+    .two-col-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4px 40px;
+        padding-left: 0 !important;
+        list-style: none !important;
+        margin: 14px 0 22px;
+    }
+    
+    .two-col-list li {
+        color: #b0b8c8 !important;
+        font-size: 16.5px;
+        line-height: 2.2;
+        padding: 4px 0;
+        padding-left: 28px;
+        position: relative;
+    }
+    
+    .two-col-list li::before {
+        content: "▸";
+        color: #00ff88;
+        position: absolute;
+        left: 0;
+        font-weight: 700;
+    }
+    
+    @media (max-width: 768px) {
+        .two-col-list {
+            grid-template-columns: 1fr 1fr;
+            gap: 2px 20px;
+        }
+        .two-col-list li {
+            font-size: 15px;
+            padding-left: 24px;
+        }
+    }
+    
+    @media (max-width: 600px) {
+        .two-col-list {
+            grid-template-columns: 1fr;
+            gap: 2px;
+        }
+        .two-col-list li {
+            font-size: 15px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .two-col-list li {
+            font-size: 14px;
+        }
+    }
+    
+    /* ===== HORIZONTAL RULE ===== */
+    .cyber-post-wrapper hr {
+        border: none;
+        border-top: 1px solid rgba(0, 255, 136, 0.06);
+        margin: 30px 0 32px;
+        background: transparent;
+        height: 1px;
+    }
+    
+    /* ===== SHARE SECTION ===== */
+    .share-section {
+        margin-top: 50px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(0, 255, 136, 0.08);
+    }
+    
+    .share-section p {
+        color: #6a7290 !important;
+        font-size: 15px;
+        text-align: center;
+        margin-bottom: 16px !important;
+    }
+    
+    .share-buttons {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .share-buttons a {
+        padding: 12px 28px;
+        border: 1px solid rgba(0, 255, 136, 0.12);
+        border-radius: 10px;
+        color: #b0b8c8 !important;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 500;
+        transition: 0.3s;
+        background: transparent;
+    }
+    
+    .share-buttons a:hover {
+        border-color: #00ff88;
+        color: #00ff88 !important;
+        background: rgba(0, 255, 136, 0.04);
+        transform: translateY(-2px);
+    }
+    
+    @media (max-width: 480px) {
+        .share-buttons a {
+            padding: 10px 18px;
+            font-size: 13px;
+        }
+        .share-section {
+            margin-top: 35px;
+            padding-top: 22px;
+        }
+    }
+    
+    /* ===== BOOK HIGHLIGHT BOX ===== */
+    .book-highlight {
+        background: linear-gradient(135deg, rgba(0, 255, 136, 0.05), rgba(0, 217, 255, 0.05));
+        border: 1px solid rgba(0, 255, 136, 0.1);
+        border-radius: 14px;
+        padding: 24px 30px;
+        margin: 20px 0 25px;
+        text-align: center;
+    }
+    
+    .book-highlight p {
+        margin: 5px 0 !important;
+        font-size: 16px;
+    }
+    
+    .book-highlight .highlight-title {
+        color: #00ff88;
+        font-weight: 700;
+        font-size: 18px;
+    }
+    
+    @media (max-width: 480px) {
+        .book-highlight {
+            padding: 18px 16px;
+        }
+        .book-highlight p {
+            font-size: 14px;
+        }
+        .book-highlight .highlight-title {
+            font-size: 16px;
+        }
+    }
+    
+    /* ===== BASH POWER BOX ===== */
+    .bash-power-box {
+        background: rgba(0, 255, 136, 0.03);
+        border: 1px solid rgba(0, 255, 136, 0.1);
+        border-radius: 14px;
+        padding: 20px 28px;
+        margin: 20px 0 25px;
+        text-align: center;
+    }
+    
+    .bash-power-box .big-text {
+        color: #00ff88;
+        font-weight: 900;
+        font-size: 22px;
+        letter-spacing: 1px;
+        font-family: 'Courier New', monospace;
+    }
+    
+    .bash-power-box p {
+        margin: 5px 0 !important;
+        font-size: 15px;
+    }
+    
+    @media (max-width: 480px) {
+        .bash-power-box {
+            padding: 16px 16px;
+        }
+        .bash-power-box .big-text {
+            font-size: 17px;
+        }
+        .bash-power-box p {
+            font-size: 14px;
+        }
+    }
+    
+    /* ===== RESPONSIBLE USE BOX ===== */
+    .responsible-box {
+        background: rgba(255, 107, 107, 0.05);
+        border: 1px solid rgba(255, 107, 107, 0.15);
+        border-radius: 14px;
+        padding: 20px 28px;
+        margin: 25px 0 30px;
+        text-align: center;
+    }
+    
+    .responsible-box p {
+        margin: 5px 0 !important;
+        font-size: 15px;
+        color: #ff6b6b !important;
+    }
+    
+    .responsible-box .shield-text {
+        font-weight: 700;
+        font-size: 18px;
+    }
+    
+    @media (max-width: 480px) {
+        .responsible-box {
+            padding: 16px 16px;
+        }
+        .responsible-box p {
+            font-size: 14px;
+        }
+        .responsible-box .shield-text {
+            font-size: 16px;
+        }
+    }
+    
+    /* ===== BLOGGER OVERRIDES ===== */
+    .blog-posts {
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+    
+    .post-body {
+        padding: 0 !important;
+        background: #000000 !important;
+    }
+    
+    .post-body-content {
+        background: #000000 !important;
+        padding: 0 !important;
+    }
+    
+    .post-outer {
+        background: #000000 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+    
+    .post {
+        background: #000000 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+    
+    /* ===== INLINE CODE ===== */
+    .cyber-post-wrapper code {
+        background: #0a0a0a;
+        padding: 2px 12px;
+        border-radius: 4px;
+        color: #00ff88;
+        border: 1px solid rgba(0, 255, 136, 0.08);
+        font-size: 14.5px;
+        font-family: 'Courier New', monospace;
+    }
+    
+    @media (max-width: 480px) {
+        .cyber-post-wrapper code {
+            font-size: 13px;
+            padding: 1px 8px;
+        }
+    }
+    
+    /* ===== IMAGES ===== */
+    .cyber-post-wrapper img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+        margin: 10px 0;
+        border: 1px solid rgba(0, 255, 136, 0.05);
+    }
+    
+    .separator {
+        clear: both;
+        text-align: center;
+    }
+    
+    /* ===== LINK STYLES ===== */
+    .cyber-post-wrapper a {
+        color: #00ff88;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+    
+    .cyber-post-wrapper a:hover {
+        color: #00d9ff;
+        text-decoration: underline;
+    }
+</style>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="cyber-post-wrapper">
+
+    <div class="cyber-content">
+
+        <!-- ===== POST HEADER ===== -->
+        <div class="post-header-cyber">
+            <div class="post-badge">🐧 Linux Security</div>
+            <h1 class="post-title-cyber">Bash Scripting for Ethical Hackers: <strong>Why Every Cybersecurity Professional Should Learn Bash</strong></h1>
+        </div>
+
+        <!-- ===== INTRODUCTION ===== -->
+        <p>
+            In today's cybersecurity landscape, automation is no longer optional—it's an essential skill. Whether you're conducting security assessments, managing Linux servers, analyzing logs, or performing repetitive administrative tasks, Bash scripting can dramatically improve your productivity.
+        </p>
+        <p>
+            That's why I wrote <strong>Bash Scripting for Ethical Hackers</strong>—a practical guide designed to help beginners and cybersecurity enthusiasts master Bash through real-world examples and hands-on projects.
+        </p>
+
+        <!-- ===== BASH POWER BOX ===== -->
+        <div class="bash-power-box">
+            <p class="big-text">$> echo "Automation is Power"</p>
+            <p style="color:#b0b8c8;">
+                Bash is the <strong style="color:#00ff88;">default shell on 90%+ of Linux systems</strong> — Master it and automate everything!
+            </p>
+        </div>
+
+        <!-- ===== FEATURED IMAGES WITH AMAZON LINK ===== -->
+        <div class="featured-box">
+            <div class="featured-image">
+                <div class="image-group">
+                    <a href="https://www.amazon.com/dp/B0H8KFK6LS" target="_blank" rel="noopener">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUJJm8hkaz5iheNSaadwjY-r-q0IepD5neFTtPmaVhtZoCZeBTMybuxXkXhA7mL786ZTv6jA3ZHqV52rOOlXq3JzDLvIOWwsBrBLCPkfSjyxNj7zhReZy7dTTXYom6UETREGC-DSfEqsZvWpmiMJpZ-kz5DBBOLum_sCx1MVXagQXyG13WR3OnHXkhy3zI/s320/ChatGPT%20Image%20Jul%2012,%202026,%2005_14_24%20AM.png" 
+                             alt="Bash Scripting for Ethical Hackers Book"/>
+                    </a>
+                    <span class="price-tag">💰 ₹300 Only</span>
+                    <a href="https://www.amazon.com/dp/B0H8KFK6LS" target="_blank" rel="noopener">
+                       
+                    </a>
+                </div>
+            </div>
+            <div class="featured-cta">
+                <p>📚 <strong style="color:#00ff88;">Get Your Copy Today!</strong></p>
+                <a class="main-link" href="https://www.amazon.com/dp/B0H8KFK6LS" target="_blank" rel="noopener">
+                    🛒 Buy Now on Amazon
+                </a>
+                
+                
+            </div>
+        </div>
+
+        <!-- ===== WHY LEARN BASH ===== -->
+        <h2 id="why">💡 Why Learn Bash?</h2>
+        <p>
+            Bash is the default shell on most Linux systems, making it one of the most valuable tools for cybersecurity professionals. Instead of executing commands one at a time, you can automate workflows with scripts that save time and reduce human error.
+        </p>
+        <p>
+            <strong>With Bash, you can:</strong>
+        </p>
+        <ul>
+            <li>Automate repetitive Linux tasks</li>
+            <li>Process large numbers of files efficiently</li>
+            <li>Monitor system health and logs</li>
+            <li>Build command-line tools</li>
+            <li>Manage servers with ease</li>
+            <li>Improve productivity during authorized security assessments</li>
+        </ul>
+
+        <!-- ===== WHAT YOU'LL LEARN ===== -->
+        <h2 id="learn">📖 What You'll Learn</h2>
+        <p>
+            This book takes you from the basics to more advanced Bash scripting concepts.
+        </p>
+        <p>
+            <strong>Topics include:</strong>
+        </p>
+        <ul class="two-col-list">
+            <li>Bash fundamentals and shell commands</li>
+            <li>Variables and operators</li>
+            <li>Conditional statements</li>
+            <li>Loops and functions</li>
+            <li>Arrays and string manipulation</li>
+            <li>File handling and text processing</li>
+            <li>Error handling and debugging</li>
+            <li>Script optimization</li>
+            <li>Linux automation</li>
+            <li>Practical scripting projects</li>
+        </ul>
+        <p>
+            Each chapter focuses on building practical skills that you can apply immediately.
+        </p>
+
+        <!-- ===== BOOK HIGHLIGHT ===== -->
+        <div class="book-highlight">
+            <p class="highlight-title">⭐ From Bash Beginner to Automation Pro</p>
+            <p style="color:#b0b8c8;">
+                No advanced programming experience required — Start from the basics and build real-world automation skills!
+            </p>
+        </div>
+
+        <!-- ===== WHO IS THIS BOOK FOR ===== -->
+        <h2 id="who">🎯 Who Is This Book For?</h2>
+        <p>
+            <strong>This guide is ideal for:</strong>
+        </p>
+        <ul class="two-col-list">
+            <li>Beginners learning Linux</li>
+            <li>Computer science students</li>
+            <li>System administrators</li>
+            <li>DevOps engineers</li>
+            <li>Cybersecurity learners</li>
+            <li>Ethical hacking students</li>
+            <li>Anyone interested in automation with Bash</li>
+        </ul>
+        <p>
+            No advanced programming experience is required.
+        </p>
+
+        <!-- ===== PRACTICAL LEARNING ===== -->
+        <h2 id="practical">🛠️ Practical, Hands-On Learning</h2>
+        <p>
+            Rather than focusing only on theory, this book emphasizes practical scripting techniques. You'll write scripts that automate everyday Linux tasks and strengthen your understanding of shell programming in a responsible and ethical manner.
+        </p>
+
+        <!-- ===== WHY BASH MATTERS ===== -->
+        <h2 id="matters">🔧 Why Bash Still Matters</h2>
+        <p>
+            Although many programming languages are available today, Bash remains one of the fastest and most effective ways to automate tasks on Linux. It integrates seamlessly with common Unix utilities and is widely used across servers, cloud environments, and development workflows.
+        </p>
+        <p>
+            Learning Bash provides a strong foundation that complements other languages such as Python and Go.
+        </p>
+
+        <!-- ===== START YOUR JOURNEY ===== -->
+        <h2 id="start">🚀 Start Your Bash Journey</h2>
+        <p>
+            Whether your goal is to automate Linux administration, improve your scripting skills, or build a stronger foundation for cybersecurity, <strong>Bash Scripting for Ethical Hackers</strong> offers practical guidance and real-world examples to help you progress.
+        </p>
+
+        <!-- ===== FINAL CTA ===== -->
+        <div class="book-highlight" style="border-color:#ffcc00;background:linear-gradient(135deg,rgba(255,204,0,0.05),rgba(0,255,136,0.05));">
+            <p class="highlight-title" style="color:#ffcc00;">$> Ready to Automate Like a Pro?</p>
+            <p style="color:#b0b8c8;font-size:16px;">
+                Spend less time repeating commands and more time solving problems.
+            </p>
+            <br/>
+            <a class="main-link" href="https://www.amazon.com/dp/B0H8KFK6LS" target="_blank" rel="noopener" 
+               style="display:inline-block;padding:15px 42px;background:linear-gradient(135deg,#ffcc00,#ff9900);color:#000000 !important;border-radius:10px;font-weight:700;font-size:16px;text-decoration:none;transition:all 0.3s ease;letter-spacing:0.5px;">
+                🛒 Buy Now on Amazon
+            </a>
+            <p class="small-note" style="color:#6a7290 !important;font-size:13px;margin-top:12px;">
+                Start your automation journey today — Get your copy now!
+            </p>
+        </div>
+
+        <!-- ===== RESPONSIBLE USE ===== -->
+        <div class="responsible-box">
+            <p class="shield-text">🛡️ Always Use Your Skills Responsibly</p>
+            <p style="color:#ff6b6b !important;font-size:14px;">
+                Perform security testing only on systems you own or have explicit authorization to assess.
+            </p>
+            <p style="color:#ff6b6b !important;font-size:13px;margin-top:8px !important;">
+                Happy scripting — and always use your skills ethically!
+            </p>
+        </div>
+
+        <hr/>
+
+        <!-- ===== SHARE SECTION ===== -->
+        <div class="share-section">
+            <p>📤 Share this book recommendation with your network</p>
+            <div class="share-buttons">
+                <a href="#" onclick="window.open('https://twitter.com/intent/tweet?text=Bash%20Scripting%20for%20Ethical%20Hackers%20-%20Why%20Every%20Cybersecurity%20Professional%20Should%20Learn%20Bash!%20%23Bash%20%23CyberSecurity%20%23EthicalHacking%20%23Linux','_blank');return false;">
+                    🐦 Twitter
+                </a>
+                <a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(window.location.href),'_blank');return false;">
+                    📘 Facebook
+                </a>
+                <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank');return false;">
+                    💼 LinkedIn
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
