@@ -1,871 +1,1616 @@
-<!-- ===== BASH SCRIPTING BOOK POST - CYBERSUME FULL SCREEN BLACK EDITION ===== -->
-<!-- Isko Blogger Post Editor mein HTML mode mein paste karein -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script type="text/javascript" data-cfasync="false">
+/*<![CDATA[/* */
+(function(){var v=window,q="e25514fe4b35f595db6750aa70f72f50",h=[["siteId",322*819*448+424-112824949],["minBid",0],["popundersPerIP","0"],["delayBetween",0],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],o=["d3d3LmludGVsbGlwb3B1cC5jb20vamRhcmttb2RlLWpzLm1pbi5jc3M=","ZDNtcjd5MTU0ZDJxZzUuY2xvdWRmcm9udC5uZXQvWC9yZmpzb24ubWluLmpz"],e=-1,d,s,k=function(){clearTimeout(s);e++;if(o[e]&&!(1816360970000<(new Date).getTime()&&1<e)){d=v.document.createElement("script");d.type="text/javascript";d.async=!0;var a=v.document.getElementsByTagName("script")[0];d.src="https://"+atob(o[e]);d.crossOrigin="anonymous";d.onerror=k;d.onload=function(){clearTimeout(s);v[q.slice(0,16)+q.slice(0,16)]||k()};s=setTimeout(k,5E3);a.parentNode.insertBefore(d,a)}};if(!v[q]){try{Object.freeze(v[q]=h)}catch(e){}k()}})();
+/*]]>/* */
+</script>
 
-<style>
-    /* ===== FULL SCREEN WRAPPER ===== */
-    .cyber-post-wrapper {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        padding: 30px 40px 50px !important;
-        background: #000000 !important;
-        color: #ffffff;
-        border-radius: 0 !important;
-        box-sizing: border-box;
-    }
-    
-    /* ===== RESPONSIVE FULL SCREEN MARGINS ===== */
-    @media (max-width: 1200px) {
-        .cyber-post-wrapper {
-            padding: 25px 35px 45px !important;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bash Scripting for Ethical Hackers — Complete Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-    }
-    
-    @media (max-width: 992px) {
-        .cyber-post-wrapper {
-            padding: 22px 30px 40px !important;
+
+        html {
+            scroll-behavior: smooth;
         }
-    }
-    
-    @media (max-width: 768px) {
-        .cyber-post-wrapper {
-            padding: 18px 22px 35px !important;
+
+        body {
+            font-family: 'Outfit', -apple-system, sans-serif;
+            background: #000000;
+            background-image: 
+                radial-gradient(ellipse 80% 60% at 50% -20%, rgba(0, 255, 136, 0.08), transparent),
+                radial-gradient(ellipse 60% 50% at 100% 100%, rgba(0, 217, 255, 0.05), transparent);
+            background-attachment: fixed;
+            color: #ffffff;
+            min-height: 100vh;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            padding: 0;
         }
-    }
-    
-    @media (max-width: 600px) {
-        .cyber-post-wrapper {
-            padding: 15px 18px 30px !important;
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 48px 32px 100px;
         }
-    }
-    
-    @media (max-width: 480px) {
-        .cyber-post-wrapper {
-            padding: 12px 14px 25px !important;
-        }
-    }
-    
-    /* ===== CONTENT MAX WIDTH ===== */
-    .cyber-content {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 0;
-    }
-    
-    /* ===== POST HEADER ===== */
-    .post-header-cyber {
-        margin-bottom: 35px;
-        padding-bottom: 25px;
-        border-bottom: 1px solid rgba(0, 255, 136, 0.08);
-        background: transparent;
-    }
-    
-    .post-badge {
-        display: inline-block;
-        padding: 6px 26px;
-        background: rgba(0, 255, 136, 0.08);
-        border: 1px solid #00ff88;
-        border-radius: 50px;
-        color: #00ff88;
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        margin-bottom: 20px;
-    }
-    
-    .post-title-cyber {
-        font-size: 38px;
-        font-weight: 900;
-        line-height: 1.15;
-        color: #ffffff !important;
-        margin: 12px 0 18px;
-        letter-spacing: -0.5px;
-    }
-    
-    .post-title-cyber strong {
-        color: #00ff88;
-    }
-    
-    @media (max-width: 992px) {
-        .post-title-cyber {
-            font-size: 30px;
-        }
-    }
-    
-    @media (max-width: 768px) {
-        .post-title-cyber {
-            font-size: 24px;
-        }
-    }
-    
-    @media (max-width: 480px) {
-        .post-title-cyber {
-            font-size: 20px;
-        }
-    }
-    
-    /* ===== FEATURED BOX ===== */
-    .featured-box {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 35px;
-        background: #0a0a0a !important;
-        border: 1px solid rgba(0, 255, 136, 0.12);
-        border-radius: 18px;
-        padding: 32px 38px;
-        margin: 25px 0 38px;
-        justify-content: center;
-    }
-    
-    @media (max-width: 768px) {
-        .featured-box {
-            flex-direction: column;
+
+        /* ===== HEADER ===== */
+        .page-header {
             text-align: center;
-            padding: 25px 22px;
-            gap: 22px;
+            padding: 20px 0 48px;
+            position: relative;
+            margin-bottom: 48px;
         }
-    }
-    
-    @media (max-width: 480px) {
-        .featured-box {
-            padding: 20px 16px;
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ff88, transparent);
         }
-    }
-    
-    .featured-image {
-        flex-shrink: 0;
-    }
-    
-    .featured-image img {
-        max-width: 220px;
-        height: auto;
-        border-radius: 14px;
-        border: 2px solid #00ff88;
-        transition: 0.3s;
-        background: #000000;
-    }
-    
-    .featured-image img:first-child {
-        max-width: 200px;
-    }
-    
-    .featured-image .download-btn-img {
-        max-width: 280px !important;
-        margin-top: 10px;
-        border: none !important;
-        border-radius: 10px !important;
-        transition: 0.3s;
-    }
-    
-    .featured-image .download-btn-img:hover {
-        transform: scale(1.03);
-        box-shadow: 0 0 30px rgba(0, 255, 136, 0.15);
-    }
-    
-    @media (max-width: 768px) {
-        .featured-image img {
-            max-width: 180px;
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: rgba(0, 255, 136, 0.05);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: 100px;
+            color: #00ff88;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
         }
-        .featured-image .download-btn-img {
-            max-width: 240px !important;
+
+        .badge .dot {
+            width: 6px;
+            height: 6px;
+            background: #00ff88;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ff88;
+            animation: pulse 2s infinite;
         }
-    }
-    
-    @media (max-width: 480px) {
-        .featured-image img {
-            max-width: 150px;
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
         }
-        .featured-image .download-btn-img {
-            max-width: 200px !important;
+
+        h1 {
+            font-size: clamp(34px, 5.5vw, 62px);
+            font-weight: 900;
+            line-height: 1.08;
+            letter-spacing: -0.03em;
+            margin-bottom: 18px;
+            background: linear-gradient(180deg, #ffffff 0%, #8892a8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-    }
-    
-    .featured-image img:hover {
-        transform: scale(1.03);
-        box-shadow: 0 0 40px rgba(0, 255, 136, 0.15);
-    }
-    
-    .featured-cta {
-        flex: 1;
-        text-align: center;
-    }
-    
-    .featured-cta p {
-        color: #b0b8c8 !important;
-        margin: 5px 0 12px !important;
-        font-size: 16px;
-    }
-    
-    .featured-cta .main-link {
-        display: inline-block;
-        padding: 15px 42px;
-        background: linear-gradient(135deg, #00ff88, #00cc77);
-        color: #000000 !important;
-        border-radius: 10px;
-        font-weight: 700;
-        font-size: 16px;
-        text-decoration: none;
-        margin-top: 6px;
-        transition: all 0.3s ease;
-        letter-spacing: 0.5px;
-    }
-    
-    .featured-cta .main-link:hover {
-        transform: scale(1.04);
-        box-shadow: 0 0 35px rgba(0, 255, 136, 0.25);
-    }
-    
-    .featured-cta .small-note {
-        color: #6a7290 !important;
-        font-size: 13px;
-        margin-top: 12px !important;
-    }
-    
-    .image-group {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-    
-    .price-tag {
-        display: inline-block;
-        padding: 4px 18px;
-        background: rgba(255, 204, 0, 0.1);
-        border: 1px solid #ffcc00;
-        border-radius: 50px;
-        color: #ffcc00;
-        font-size: 14px;
-        font-weight: 700;
-        margin-top: 5px;
-    }
-    
-    /* ===== HEADINGS ===== */
-    .cyber-post-wrapper h2 {
-        color: #ffffff !important;
-        font-size: 28px;
-        font-weight: 800;
-        margin-top: 40px;
-        margin-bottom: 18px;
-        border-left: 5px solid #00ff88;
-        padding-left: 20px;
-        line-height: 1.3;
-    }
-    
-    .cyber-post-wrapper h2#why {
-        border-left-color: #00d9ff;
-    }
-    
-    .cyber-post-wrapper h2#learn {
-        border-left-color: #ffcc00;
-    }
-    
-    .cyber-post-wrapper h2#who {
-        border-left-color: #ff6b6b;
-    }
-    
-    .cyber-post-wrapper h2#practical {
-        border-left-color: #00ff88;
-    }
-    
-    .cyber-post-wrapper h2#matters {
-        border-left-color: #00d9ff;
-    }
-    
-    .cyber-post-wrapper h2#start {
-        border-left-color: #ffcc00;
-    }
-    
-    @media (max-width: 992px) {
-        .cyber-post-wrapper h2 {
-            font-size: 26px;
+
+        h1 .highlight {
+            background: linear-gradient(135deg, #00ff88 0%, #00d9ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-    }
-    
-    @media (max-width: 768px) {
-        .cyber-post-wrapper h2 {
-            font-size: 24px;
-            padding-left: 16px;
-            margin-top: 35px;
+
+        .subtitle {
+            color: #8892a8;
+            font-size: 17px;
+            font-weight: 300;
+            max-width: 660px;
+            margin: 0 auto 24px;
+        }
+
+        .meta-bar {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 24px 0 0;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            background: rgba(10, 15, 25, 0.6);
+            border: 1px solid rgba(0, 255, 136, 0.1);
+            border-radius: 100px;
+            color: #8892a8;
+            font-size: 12.5px;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        .meta-item .ico {
+            font-size: 14px;
+        }
+
+        .meta-item strong {
+            color: #00ff88;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+        }
+
+        /* ===== TABLE OF CONTENTS ===== */
+        .toc {
+            background: linear-gradient(165deg, #0b0f18 0%, #060910 100%);
+            border: 1px solid rgba(0, 255, 136, 0.1);
+            border-radius: 20px;
+            padding: 26px 28px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .toc::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ff88, transparent);
+            opacity: 0.6;
+        }
+
+        .toc-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #00ff88;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-    }
-    
-    @media (max-width: 480px) {
-        .cyber-post-wrapper h2 {
-            font-size: 20px;
-            padding-left: 14px;
-            margin-top: 28px;
+
+        .toc-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 8px;
+            list-style: none;
+        }
+
+        .toc-list li a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            color: #b0b8c8;
+            text-decoration: none;
+            font-size: 14px;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .toc-list li a:hover {
+            background: rgba(0, 255, 136, 0.05);
+            border-color: rgba(0, 255, 136, 0.15);
+            color: #00ff88;
+            transform: translateX(4px);
+        }
+
+        .toc-list li a .num {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: #00ff88;
+            background: rgba(0, 255, 136, 0.08);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            background: linear-gradient(165deg, #0b0f18 0%, #060910 100%);
+            border: 1px solid rgba(0, 255, 136, 0.08);
+            border-radius: 20px;
+            padding: 36px 34px;
+            margin-bottom: 26px;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s ease;
+            scroll-margin-top: 20px;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ff88, transparent);
+            opacity: 0.5;
+        }
+
+        .section:hover {
+            border-color: rgba(0, 255, 136, 0.2);
+        }
+
+        .section-number {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            color: #00ff88;
+            background: rgba(0, 255, 136, 0.08);
+            border: 1px solid rgba(0, 255, 136, 0.15);
+            padding: 3px 10px;
+            border-radius: 6px;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 25px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+        }
+
+        .section-title .icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.12), rgba(0, 217, 255, 0.06));
+            border: 1px solid rgba(0, 255, 136, 0.15);
+            flex-shrink: 0;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #00ff88;
+            margin: 24px 0 12px;
+            letter-spacing: -0.01em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        h3::before {
+            content: '▸';
+            color: #00d9ff;
+            font-size: 16px;
+        }
+
+        h4 {
+            font-size: 15.5px;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 18px 0 8px;
+        }
+
+        p {
+            color: #b0b8c8;
+            font-size: 15.5px;
+            line-height: 1.75;
             margin-bottom: 14px;
         }
-    }
-    
-    /* ===== PARAGRAPHS ===== */
-    .cyber-post-wrapper p {
-        color: #b0b8c8 !important;
-        font-size: 17px;
-        line-height: 1.95;
-        margin: 16px 0 20px;
-    }
-    
-    .cyber-post-wrapper p strong {
-        color: #00ff88;
-    }
-    
-    @media (max-width: 768px) {
-        .cyber-post-wrapper p {
-            font-size: 16px;
-            line-height: 1.85;
+
+        p:last-child {
+            margin-bottom: 0;
         }
-    }
-    
-    @media (max-width: 480px) {
-        .cyber-post-wrapper p {
+
+        strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        em {
+            color: #00d9ff;
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        a {
+            color: #00ff88;
+            text-decoration: none;
+            border-bottom: 1px dotted rgba(0, 255, 136, 0.4);
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            color: #00d9ff;
+            border-bottom-color: #00d9ff;
+        }
+
+        /* ===== LISTS ===== */
+        ul, ol {
+            list-style: none;
+            margin: 12px 0;
+        }
+
+        ul li {
+            color: #b0b8c8;
             font-size: 15px;
+            padding: 10px 0 10px 32px;
+            position: relative;
+            line-height: 1.65;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        ul li:last-child {
+            border-bottom: none;
+        }
+
+        ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 8px;
+            color: #00ff88;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        ol {
+            counter-reset: item;
+        }
+
+        ol li {
+            color: #b0b8c8;
+            font-size: 15px;
+            padding: 10px 0 10px 42px;
+            position: relative;
+            line-height: 1.65;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            counter-increment: item;
+        }
+
+        ol li:last-child {
+            border-bottom: none;
+        }
+
+        ol li::before {
+            content: counter(item);
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 26px;
+            height: 26px;
+            border-radius: 8px;
+            background: rgba(0, 255, 136, 0.08);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            color: #00ff88;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ===== INLINE CODE ===== */
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: #00ff88;
+            background: rgba(0, 255, 136, 0.08);
+            padding: 2px 7px;
+            border-radius: 5px;
+            border: 1px solid rgba(0, 255, 136, 0.1);
+            font-weight: 500;
+        }
+
+        /* ===== CODE BLOCKS ===== */
+        .code-block {
+            background: #04060a;
+            border: 1px solid rgba(0, 255, 136, 0.12);
+            border-radius: 14px;
+            padding: 22px 24px;
+            margin: 18px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            line-height: 1.75;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-block::before {
+            content: attr(data-lang);
+            position: absolute;
+            top: 10px;
+            right: 16px;
+            font-size: 10px;
+            color: #00ff88;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-weight: 700;
+            opacity: 0.5;
+        }
+
+        .code-block code {
+            color: #d4d4d4;
+            font-family: 'JetBrains Mono', monospace;
+            white-space: pre;
+            background: none;
+            border: none;
+            padding: 0;
+            font-size: 13px;
+        }
+
+        .cmt { color: #5a6478; font-style: italic; }
+        .cmd { color: #00ff88; font-weight: 500; }
+        .var { color: #00d9ff; }
+        .str { color: #ffd166; }
+        .kw  { color: #ff79c6; font-weight: 600; }
+        .num { color: #bd93f9; }
+
+        /* ===== CALLOUT ===== */
+        .callout {
+            background: rgba(0, 255, 136, 0.04);
+            border-left: 3px solid #00ff88;
+            border-radius: 0 12px 12px 0;
+            padding: 18px 22px;
+            margin: 20px 0;
+            color: #c8d0e0;
+            font-size: 14.5px;
+            line-height: 1.7;
+        }
+
+        .callout strong {
+            color: #00ff88;
+        }
+
+        .callout.warn {
+            background: rgba(255, 107, 107, 0.04);
+            border-left-color: #ff6b6b;
+        }
+
+        .callout.warn strong {
+            color: #ff6b6b;
+        }
+
+        .callout.info {
+            background: rgba(0, 217, 255, 0.04);
+            border-left-color: #00d9ff;
+        }
+
+        .callout.info strong {
+            color: #00d9ff;
+        }
+
+        /* ===== TABLE ===== */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 18px 0;
+            border-radius: 14px;
+            border: 1px solid rgba(0, 255, 136, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            min-width: 480px;
+        }
+
+        thead {
+            background: rgba(0, 255, 136, 0.06);
+        }
+
+        th {
+            text-align: left;
+            padding: 14px 18px;
+            color: #00ff88;
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.15);
+        }
+
+        td {
+            padding: 13px 18px;
+            color: #b0b8c8;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            line-height: 1.6;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background: rgba(0, 255, 136, 0.02);
+        }
+
+        td code {
+            font-size: 12px;
+        }
+
+        /* ===== USE CASES GRID ===== */
+        .use-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+            margin: 20px 0 4px;
+        }
+
+        .use-card {
+            background: rgba(0, 255, 136, 0.03);
+            border: 1px solid rgba(0, 255, 136, 0.1);
+            border-radius: 14px;
+            padding: 20px 18px;
+            transition: all 0.25s ease;
+        }
+
+        .use-card:hover {
+            border-color: rgba(0, 255, 136, 0.3);
+            background: rgba(0, 255, 136, 0.06);
+            transform: translateY(-3px);
+        }
+
+        .use-card .use-icon {
+            font-size: 26px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .use-card h4 {
+            font-size: 14.5px;
+            font-weight: 700;
+            color: #00ff88;
+            margin: 0 0 8px;
+        }
+
+        .use-card p {
+            font-size: 13px;
+            color: #8892a8;
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        /* ===== TOOL LIST ===== */
+        .tool-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
+            margin: 16px 0;
+        }
+
+        .tool-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            background: rgba(0, 255, 136, 0.03);
+            border: 1px solid rgba(0, 255, 136, 0.08);
+            border-radius: 10px;
+            color: #d0d8e8;
+            font-size: 13.5px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .tool-item:hover {
+            border-color: rgba(0, 255, 136, 0.25);
+            background: rgba(0, 255, 136, 0.06);
+        }
+
+        .tool-item .t-ico {
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        /* ===== KEYBOARD SHORTCUT ===== */
+        kbd {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11.5px;
+            color: #00ff88;
+            background: #0a1018;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-bottom-width: 2px;
+            padding: 2px 8px;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+
+        /* ===== FOOTER ===== */
+        .page-footer {
+            text-align: center;
+            padding: 48px 0 0;
+            margin-top: 40px;
+            border-top: 1px solid rgba(0, 255, 136, 0.08);
+            color: #4a5568;
+            font-size: 13px;
             line-height: 1.8;
-            margin: 14px 0 16px;
         }
-    }
-    
-    /* ===== LISTS ===== */
-    .cyber-post-wrapper ul,
-    .cyber-post-wrapper ol {
-        color: #b0b8c8 !important;
-        font-size: 17px;
-        line-height: 2.3;
-        padding-left: 0;
-        margin: 14px 0 22px;
-        list-style: none;
-    }
-    
-    .cyber-post-wrapper ul li,
-    .cyber-post-wrapper ol li {
-        color: #b0b8c8 !important;
-        margin-bottom: 4px;
-        padding-left: 28px;
-        position: relative;
-    }
-    
-    .cyber-post-wrapper ul li::before {
-        content: "▸";
-        color: #00ff88;
-        position: absolute;
-        left: 0;
-        font-weight: 700;
-        font-size: 18px;
-    }
-    
-    .cyber-post-wrapper ol {
-        list-style: none;
-        counter-reset: item;
-    }
-    
-    .cyber-post-wrapper ol li {
-        counter-increment: item;
-        padding-left: 35px;
-    }
-    
-    .cyber-post-wrapper ol li::before {
-        content: counter(item) ".";
-        color: #00ff88;
-        position: absolute;
-        left: 0;
-        font-weight: 700;
-        font-size: 16px;
-    }
-    
-    @media (max-width: 480px) {
-        .cyber-post-wrapper ul,
-        .cyber-post-wrapper ol {
-            font-size: 15px;
-            line-height: 2.1;
-        }
-        .cyber-post-wrapper ul li,
-        .cyber-post-wrapper ol li {
-            padding-left: 24px;
-        }
-        .cyber-post-wrapper ol li {
-            padding-left: 30px;
-        }
-    }
-    
-    /* ===== TWO COLUMN LIST ===== */
-    .two-col-list {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4px 40px;
-        padding-left: 0 !important;
-        list-style: none !important;
-        margin: 14px 0 22px;
-    }
-    
-    .two-col-list li {
-        color: #b0b8c8 !important;
-        font-size: 16.5px;
-        line-height: 2.2;
-        padding: 4px 0;
-        padding-left: 28px;
-        position: relative;
-    }
-    
-    .two-col-list li::before {
-        content: "▸";
-        color: #00ff88;
-        position: absolute;
-        left: 0;
-        font-weight: 700;
-    }
-    
-    @media (max-width: 768px) {
-        .two-col-list {
-            grid-template-columns: 1fr 1fr;
-            gap: 2px 20px;
-        }
-        .two-col-list li {
-            font-size: 15px;
-            padding-left: 24px;
-        }
-    }
-    
-    @media (max-width: 600px) {
-        .two-col-list {
-            grid-template-columns: 1fr;
-            gap: 2px;
-        }
-        .two-col-list li {
-            font-size: 15px;
-        }
-    }
-    
-    @media (max-width: 480px) {
-        .two-col-list li {
-            font-size: 14px;
-        }
-    }
-    
-    /* ===== HORIZONTAL RULE ===== */
-    .cyber-post-wrapper hr {
-        border: none;
-        border-top: 1px solid rgba(0, 255, 136, 0.06);
-        margin: 30px 0 32px;
-        background: transparent;
-        height: 1px;
-    }
-    
-    /* ===== SHARE SECTION ===== */
-    .share-section {
-        margin-top: 50px;
-        padding-top: 30px;
-        border-top: 1px solid rgba(0, 255, 136, 0.08);
-    }
-    
-    .share-section p {
-        color: #6a7290 !important;
-        font-size: 15px;
-        text-align: center;
-        margin-bottom: 16px !important;
-    }
-    
-    .share-buttons {
-        display: flex;
-        gap: 16px;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    
-    .share-buttons a {
-        padding: 12px 28px;
-        border: 1px solid rgba(0, 255, 136, 0.12);
-        border-radius: 10px;
-        color: #b0b8c8 !important;
-        text-decoration: none;
-        font-size: 15px;
-        font-weight: 500;
-        transition: 0.3s;
-        background: transparent;
-    }
-    
-    .share-buttons a:hover {
-        border-color: #00ff88;
-        color: #00ff88 !important;
-        background: rgba(0, 255, 136, 0.04);
-        transform: translateY(-2px);
-    }
-    
-    @media (max-width: 480px) {
-        .share-buttons a {
-            padding: 10px 18px;
-            font-size: 13px;
-        }
-        .share-section {
-            margin-top: 35px;
-            padding-top: 22px;
-        }
-    }
-    
-    /* ===== BOOK HIGHLIGHT BOX ===== */
-    .book-highlight {
-        background: linear-gradient(135deg, rgba(0, 255, 136, 0.05), rgba(0, 217, 255, 0.05));
-        border: 1px solid rgba(0, 255, 136, 0.1);
-        border-radius: 14px;
-        padding: 24px 30px;
-        margin: 20px 0 25px;
-        text-align: center;
-    }
-    
-    .book-highlight p {
-        margin: 5px 0 !important;
-        font-size: 16px;
-    }
-    
-    .book-highlight .highlight-title {
-        color: #00ff88;
-        font-weight: 700;
-        font-size: 18px;
-    }
-    
-    @media (max-width: 480px) {
-        .book-highlight {
-            padding: 18px 16px;
-        }
-        .book-highlight p {
-            font-size: 14px;
-        }
-        .book-highlight .highlight-title {
-            font-size: 16px;
-        }
-    }
-    
-    /* ===== BASH POWER BOX ===== */
-    .bash-power-box {
-        background: rgba(0, 255, 136, 0.03);
-        border: 1px solid rgba(0, 255, 136, 0.1);
-        border-radius: 14px;
-        padding: 20px 28px;
-        margin: 20px 0 25px;
-        text-align: center;
-    }
-    
-    .bash-power-box .big-text {
-        color: #00ff88;
-        font-weight: 900;
-        font-size: 22px;
-        letter-spacing: 1px;
-        font-family: 'Courier New', monospace;
-    }
-    
-    .bash-power-box p {
-        margin: 5px 0 !important;
-        font-size: 15px;
-    }
-    
-    @media (max-width: 480px) {
-        .bash-power-box {
-            padding: 16px 16px;
-        }
-        .bash-power-box .big-text {
-            font-size: 17px;
-        }
-        .bash-power-box p {
-            font-size: 14px;
-        }
-    }
-    
-    /* ===== RESPONSIBLE USE BOX ===== */
-    .responsible-box {
-        background: rgba(255, 107, 107, 0.05);
-        border: 1px solid rgba(255, 107, 107, 0.15);
-        border-radius: 14px;
-        padding: 20px 28px;
-        margin: 25px 0 30px;
-        text-align: center;
-    }
-    
-    .responsible-box p {
-        margin: 5px 0 !important;
-        font-size: 15px;
-        color: #ff6b6b !important;
-    }
-    
-    .responsible-box .shield-text {
-        font-weight: 700;
-        font-size: 18px;
-    }
-    
-    @media (max-width: 480px) {
-        .responsible-box {
-            padding: 16px 16px;
-        }
-        .responsible-box p {
-            font-size: 14px;
-        }
-        .responsible-box .shield-text {
-            font-size: 16px;
-        }
-    }
-    
-    /* ===== BLOGGER OVERRIDES ===== */
-    .blog-posts {
-        max-width: 100% !important;
-        padding: 0 !important;
-    }
-    
-    .post-body {
-        padding: 0 !important;
-        background: #000000 !important;
-    }
-    
-    .post-body-content {
-        background: #000000 !important;
-        padding: 0 !important;
-    }
-    
-    .post-outer {
-        background: #000000 !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        border: none !important;
-        box-shadow: none !important;
-    }
-    
-    .post {
-        background: #000000 !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        border: none !important;
-        box-shadow: none !important;
-    }
-    
-    /* ===== INLINE CODE ===== */
-    .cyber-post-wrapper code {
-        background: #0a0a0a;
-        padding: 2px 12px;
-        border-radius: 4px;
-        color: #00ff88;
-        border: 1px solid rgba(0, 255, 136, 0.08);
-        font-size: 14.5px;
-        font-family: 'Courier New', monospace;
-    }
-    
-    @media (max-width: 480px) {
-        .cyber-post-wrapper code {
-            font-size: 13px;
-            padding: 1px 8px;
-        }
-    }
-    
-    /* ===== IMAGES ===== */
-    .cyber-post-wrapper img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 12px;
-        margin: 10px 0;
-        border: 1px solid rgba(0, 255, 136, 0.05);
-    }
-    
-    .separator {
-        clear: both;
-        text-align: center;
-    }
-    
-    /* ===== LINK STYLES ===== */
-    .cyber-post-wrapper a {
-        color: #00ff88;
-        text-decoration: none;
-        transition: 0.3s;
-    }
-    
-    .cyber-post-wrapper a:hover {
-        color: #00d9ff;
-        text-decoration: underline;
-    }
-</style>
 
-<!-- ===== MAIN CONTENT ===== -->
-<div class="cyber-post-wrapper">
+        .page-footer .brand {
+            font-family: 'JetBrains Mono', monospace;
+            color: #00ff88;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
 
-    <div class="cyber-content">
+        .page-footer a {
+            border-bottom: none;
+        }
 
-        <!-- ===== POST HEADER ===== -->
-        <div class="post-header-cyber">
-            <div class="post-badge">🐧 Linux Security</div>
-            <h1 class="post-title-cyber">Bash Scripting for Ethical Hackers: <strong>Why Every Cybersecurity Professional Should Learn Bash</strong></h1>
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .container { padding: 28px 18px 70px; }
+            .section { padding: 26px 22px; border-radius: 16px; }
+            .section-title { font-size: 20px; gap: 12px; }
+            .section-title .icon { width: 40px; height: 40px; font-size: 18px; }
+            h1 { font-size: 32px; }
+            .subtitle { font-size: 15px; }
+            .toc { padding: 20px 18px; }
+            .toc-list { grid-template-columns: 1fr; }
+            p { font-size: 14.5px; }
+            ul li { font-size: 14px; }
+            ol li { font-size: 14px; }
+            .code-block { font-size: 12px; padding: 16px 14px; }
+            .code-block code { font-size: 12px; }
+            h3 { font-size: 16px; }
+            .use-grid { grid-template-columns: 1fr; }
+            .tool-list { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .container { padding: 20px 12px 60px; }
+            h1 { font-size: 26px; }
+            .section { padding: 22px 16px; }
+            .section-title { font-size: 17px; }
+            .section-title .icon { width: 34px; height: 34px; font-size: 15px; }
+            .meta-bar { gap: 8px; }
+            .meta-item { font-size: 11px; padding: 6px 12px; }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #05080e; }
+        ::-webkit-scrollbar-thumb { background: #1a2a2a; border-radius: 20px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00ff8833; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ===== HEADER ===== -->
+    <header class="page-header">
+        <div class="badge">
+            <span class="dot"></span>
+            CYBERSUME · COMPLETE GUIDE
         </div>
-
-        <!-- ===== INTRODUCTION ===== -->
-        <p>
-            In today's cybersecurity landscape, automation is no longer optional—it's an essential skill. Whether you're conducting security assessments, managing Linux servers, analyzing logs, or performing repetitive administrative tasks, Bash scripting can dramatically improve your productivity.
-        </p>
-        <p>
-            That's why I wrote <strong>Bash Scripting for Ethical Hackers</strong>—a practical guide designed to help beginners and cybersecurity enthusiasts master Bash through real-world examples and hands-on projects.
+        <h1>Bash Scripting for <span class="highlight">Ethical Hackers</span></h1>
+        <p class="subtitle">
+            The complete, in-depth guide to mastering Bash scripting for penetration testing, 
+            automation, and red team operations — from zero to advanced.
         </p>
 
-        <!-- ===== BASH POWER BOX ===== -->
-        <div class="bash-power-box">
-            <p class="big-text">$> echo "Automation is Power"</p>
-            <p style="color:#b0b8c8;">
-                Bash is the <strong style="color:#00ff88;">default shell on 90%+ of Linux systems</strong> — Master it and automate everything!
-            </p>
+        <div class="meta-bar">
+            <div class="meta-item"><span class="ico">📖</span> <span>Reading time: <strong>20 min</strong></span></div>
+            <div class="meta-item"><span class="ico">🐉</span> <span>Category: <strong>Linux</strong></span></div>
+            <div class="meta-item"><span class="ico">🛡️</span> <span>Level: <strong>Beginner → Advanced</strong></span></div>
+            <div class="meta-item"><span class="ico">⚡</span> <span>Updated: <strong>2025</strong></span></div>
         </div>
+    </header>
 
-        <!-- ===== FEATURED IMAGES WITH AMAZON LINK ===== -->
-        <div class="featured-box">
-            <div class="featured-image">
-                <div class="image-group">
-                    <a href="https://www.amazon.com/dp/B0H8KFK6LS" target="_blank" rel="noopener">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUJJm8hkaz5iheNSaadwjY-r-q0IepD5neFTtPmaVhtZoCZeBTMybuxXkXhA7mL786ZTv6jA3ZHqV52rOOlXq3JzDLvIOWwsBrBLCPkfSjyxNj7zhReZy7dTTXYom6UETREGC-DSfEqsZvWpmiMJpZ-kz5DBBOLum_sCx1MVXagQXyG13WR3OnHXkhy3zI/s320/ChatGPT%20Image%20Jul%2012,%202026,%2005_14_24%20AM.png" 
-                             alt="Bash Scripting for Ethical Hackers Book"/>
-                    </a>
-                    <span class="price-tag">💰 ₹300 Only</span>
-                    <a href="https://www.amazon.com/dp/B0H8KFK6LS" target="_blank" rel="noopener">
-                       
-                    </a>
-                </div>
+    <!-- ===== TABLE OF CONTENTS ===== -->
+    <nav class="toc">
+        <div class="toc-title">📑 Table of Contents</div>
+        <ul class="toc-list">
+            <li><a href="#intro"><span class="num">01</span> Introduction</a></li>
+            <li><a href="#why"><span class="num">02</span> Why Bash for Hackers</a></li>
+            <li><a href="#basics"><span class="num">03</span> Bash Fundamentals</a></li>
+            <li><a href="#variables"><span class="num">04</span> Variables &amp; Data</a></li>
+            <li><a href="#control"><span class="num">05</span> Control Flow</a></li>
+            <li><a href="#functions"><span class="num">06</span> Functions</a></li>
+            <li><a href="#pipes"><span class="num">07</span> Pipes &amp; Redirection</a></li>
+            <li><a href="#text"><span class="num">08</span> Text Processing</a></li>
+            <li><a href="#tools"><span class="num">09</span> Essential Tools</a></li>
+            <li><a href="#examples"><span class="num">10</span> Real Scripts</a></li>
+            <li><a href="#usecases"><span class="num">11</span> Use Cases</a></li>
+            <li><a href="#best"><span class="num">12</span> Best Practices</a></li>
+            <li><a href="#errors"><span class="num">13</span> Error Handling</a></li>
+            <li><a href="#advanced"><span class="num">14</span> Advanced Topics</a></li>
+            <li><a href="#legal"><span class="num">15</span> Legal &amp; Ethics</a></li>
+            <li><a href="#conclusion"><span class="num">16</span> Conclusion</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== 01 INTRO ===== -->
+    <section class="section" id="intro">
+        <span class="section-number">01 · INTRODUCTION</span>
+        <h2 class="section-title">
+            <span class="icon">🎯</span>
+            What Is Bash Scripting?
+        </h2>
+        <p>
+            <strong>Bash</strong> (Bourne Again SHell) is a command-line interpreter and scripting language that comes pre-installed on virtually every Linux and macOS system. It was created by Brian Fox in 1989 as a free replacement for the original Bourne shell (<code>sh</code>). Today, Bash is the default shell on most Linux distributions — including <strong>Kali Linux</strong>, <strong>Parrot OS</strong>, and <strong>Ubuntu</strong> — making it the lingua franca of the Linux command line.
+        </p>
+        <p>
+            A <strong>Bash script</strong> is simply a text file containing a sequence of commands that the shell executes in order. But Bash is far more than a command runner — it's a full programming language with variables, loops, conditionals, functions, arrays, and even basic arithmetic. This makes it incredibly powerful for automation.
+        </p>
+        <p>
+            For <strong>ethical hackers</strong> and penetration testers, Bash is not optional — it's essential. Almost every tool you'll use (Nmap, Metasploit, Gobuster, Nikto, Hydra, Netcat) is either written in Bash, called from Bash, or best orchestrated through Bash. Mastering Bash means you can <em>chain tools together</em>, <em>automate repetitive tasks</em>, and <em>build custom tooling</em> — skills that separate a script kiddie from a professional.
+        </p>
+    </section>
+
+    <!-- ===== 02 WHY ===== -->
+    <section class="section" id="why">
+        <span class="section-number">02 · WHY BASH FOR HACKERS</span>
+        <h2 class="section-title">
+            <span class="icon">💡</span>
+            Why Ethical Hackers Love Bash
+        </h2>
+        <p>
+            You might wonder: <em>"Why not just use Python for everything?"</em> Great question. Python is fantastic, but Bash has unique advantages in the security world:
+        </p>
+        <div class="use-grid">
+            <div class="use-card">
+                <span class="use-icon">🐧</span>
+                <h4>Pre-installed Everywhere</h4>
+                <p>Every Linux box has Bash. No installation, no dependencies, no setup — just open a terminal and go.</p>
             </div>
-            <div class="featured-cta">
-                <p>📚 <strong style="color:#00ff88;">Get Your Copy Today!</strong></p>
-                <a class="main-link" href="https://www.amazon.com/dp/B0H8KFK6LS" target="_blank" rel="noopener">
-                    🛒 Buy Now on Amazon
-                </a>
-                
-                
+            <div class="use-card">
+                <span class="use-icon">⚡</span>
+                <h4>Native System Access</h4>
+                <p>Direct access to <code>/dev/tcp</code>, <code>/proc</code>, <code>netstat</code>, <code>ps</code>, and every system tool — no wrappers needed.</p>
+            </div>
+            <div class="use-card">
+                <span class="use-icon">🔗</span>
+                <h4>Perfect Glue Language</h4>
+                <p>Chain Nmap → Grep → Awk → Curl in one line. Bash is the duct tape of the security toolkit.</p>
+            </div>
+            <div class="use-card">
+                <span class="use-icon">🚀</span>
+                <h4>Instant Prototyping</h4>
+                <p>Write a working recon script in 30 seconds. No compiler, no virtual environment, no boilerplate.</p>
+            </div>
+            <div class="use-card">
+                <span class="use-icon">🕵️</span>
+                <h4>Stealth &amp; Evasion</h4>
+                <p>Bash scripts often bypass AV detection better than compiled binaries — they're just text files.</p>
+            </div>
+            <div class="use-card">
+                <span class="use-icon">📜</span>
+                <h4>Universal Skill</h4>
+                <p>Every sysadmin, DevOps engineer, and security pro knows Bash. It's the common language.</p>
             </div>
         </div>
+        <div class="callout info">
+            <strong>💡 Pro Insight:</strong> The best hackers don't choose between Bash and Python — they combine them. Use Bash for system orchestration and quick tasks; use Python for complex logic and parsing. Together, they're unstoppable.
+        </div>
+    </section>
 
-        <!-- ===== WHY LEARN BASH ===== -->
-        <h2 id="why">💡 Why Learn Bash?</h2>
+    <!-- ===== 03 BASICS ===== -->
+    <section class="section" id="basics">
+        <span class="section-number">03 · FUNDAMENTALS</span>
+        <h2 class="section-title">
+            <span class="icon">📚</span>
+            Bash Fundamentals
+        </h2>
         <p>
-            Bash is the default shell on most Linux systems, making it one of the most valuable tools for cybersecurity professionals. Instead of executing commands one at a time, you can automate workflows with scripts that save time and reduce human error.
+            Every Bash script starts with a <strong>shebang</strong> — a special first line that tells the operating system which interpreter to use. Without it, the system doesn't know your script is Bash.
         </p>
-        <p>
-            <strong>With Bash, you can:</strong>
-        </p>
+
+        <div class="code-block" data-lang="bash">
+<code><span class="cmt">#!/bin/bash</span>
+<span class="cmt"># This is a comment. It's ignored by the shell.</span>
+
+<span class="cmd">echo</span> <span class="str">"Hello, ethical hacker!"</span></code>
+        </div>
+
+        <h3>Making a Script Executable</h3>
+        <p>After writing your script, you need to give it execute permissions:</p>
+
+        <div class="code-block" data-lang="bash">
+<code><span class="cmd">chmod</span> +x myscript.sh
+<span class="cmd">./myscript.sh</span></code>
+        </div>
+
+        <h3>The Anatomy of a Bash Command</h3>
+        <p>Every command follows this pattern: <code>command [options] [arguments]</code></p>
         <ul>
-            <li>Automate repetitive Linux tasks</li>
-            <li>Process large numbers of files efficiently</li>
-            <li>Monitor system health and logs</li>
-            <li>Build command-line tools</li>
-            <li>Manage servers with ease</li>
-            <li>Improve productivity during authorized security assessments</li>
+            <li><strong>command</strong> — the program to run (e.g., <code>ls</code>, <code>nmap</code>, <code>curl</code>)</li>
+            <li><strong>options</strong> — flags that modify behavior (e.g., <code>-l</code>, <code>--help</code>)</li>
+            <li><strong>arguments</strong> — targets or inputs (e.g., a filename, IP address, URL)</li>
         </ul>
 
-        <!-- ===== WHAT YOU'LL LEARN ===== -->
-        <h2 id="learn">📖 What You'll Learn</h2>
+        <div class="code-block" data-lang="bash">
+<code><span class="cmd">ls</span> -la /var/log
+<span class="cmt"># ls = command, -la = options, /var/log = argument</span></code>
+        </div>
+
+        <h3>Essential Commands Every Hacker Must Know</h3>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Command</th><th>Purpose</th><th>Example</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>ls</code></td><td>List directory contents</td><td><code>ls -la</code></td></tr>
+                    <tr><td><code>cd</code></td><td>Change directory</td><td><code>cd /etc</code></td></tr>
+                    <tr><td><code>pwd</code></td><td>Print working directory</td><td><code>pwd</code></td></tr>
+                    <tr><td><code>cat</code></td><td>View file contents</td><td><code>cat /etc/passwd</code></td></tr>
+                    <tr><td><code>grep</code></td><td>Search text patterns</td><td><code>grep "root" /etc/passwd</code></td></tr>
+                    <tr><td><code>find</code></td><td>Search for files</td><td><code>find / -name "*.conf"</code></td></tr>
+                    <tr><td><code>chmod</code></td><td>Change file permissions</td><td><code>chmod 755 script.sh</code></td></tr>
+                    <tr><td><code>ps</code></td><td>List running processes</td><td><code>ps aux</code></td></tr>
+                    <tr><td><code>netstat</code></td><td>Show network connections</td><td><code>netstat -tuln</code></td></tr>
+                    <tr><td><code>curl</code></td><td>Transfer data over HTTP</td><td><code>curl -I https://target.com</code></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ===== 04 VARIABLES ===== -->
+    <section class="section" id="variables">
+        <span class="section-number">04 · VARIABLES &amp; DATA</span>
+        <h2 class="section-title">
+            <span class="icon">📦</span>
+            Variables, Arrays &amp; User Input
+        </h2>
         <p>
-            This book takes you from the basics to more advanced Bash scripting concepts.
+            Variables store data that you can reuse throughout your script. In Bash, you assign a value with <code>=</code> (no spaces around it!) and access it with <code>$</code>.
         </p>
-        <p>
-            <strong>Topics include:</strong>
-        </p>
-        <ul class="two-col-list">
-            <li>Bash fundamentals and shell commands</li>
-            <li>Variables and operators</li>
-            <li>Conditional statements</li>
-            <li>Loops and functions</li>
-            <li>Arrays and string manipulation</li>
-            <li>File handling and text processing</li>
-            <li>Error handling and debugging</li>
-            <li>Script optimization</li>
-            <li>Linux automation</li>
-            <li>Practical scripting projects</li>
+
+        <div class="code-block" data-lang="bash">
+<code><span class="cmt"># Variable assignment (NO spaces around =)</span>
+<span class="var">target</span>=<span class="str">"192.168.1.100"</span>
+<span class="var">port</span>=<span class="num">22</span>
+<span class="var">username</span>=<span class="str">"admin"</span>
+
+<span class="cmt"># Accessing variables (use $ prefix)</span>
+<span class="cmd">echo</span> <span class="str">"Scanning $target on port $port"</span>
+
+<span class="cmt"># Best practice: always quote your variables</span>
+<span class="cmd">echo</span> <span class="str">"User: $username"</span></code>
+        </div>
+
+        <h3>Special Variables</h3>
+        <ul>
+            <li><code>$0</code> — Name of the script</li>
+            <li><code>$1, $2, $3...</code> — Command-line arguments</li>
+            <li><code>$#</code> — Number of arguments passed</li>
+            <li><code>$@</code> — All arguments as separate strings</li>
+            <li><code>$?</code> — Exit code of the last command (0 = success)</li>
+            <li><code>$$</code> — Process ID (PID) of the current script</li>
+            <li><code>$USER</code> — Current username</li>
+            <li><code>$HOME</code> — Home directory path</li>
+            <li><code>$RANDOM</code> — Random number between 0 and 32767</li>
         </ul>
-        <p>
-            Each chapter focuses on building practical skills that you can apply immediately.
-        </p>
 
-        <!-- ===== BOOK HIGHLIGHT ===== -->
-        <div class="book-highlight">
-            <p class="highlight-title">⭐ From Bash Beginner to Automation Pro</p>
-            <p style="color:#b0b8c8;">
-                No advanced programming experience required — Start from the basics and build real-world automation skills!
-            </p>
+        <h3>Arrays</h3>
+        <p>Bash supports both indexed and associative arrays. Indexed arrays are perfect for wordlists, IP ranges, and port lists.</p>
+
+        <div class="code-block" data-lang="bash">
+<code><span class="cmt"># Indexed array</span>
+<span class="var">ports</span>=(<span class="num">21</span> <span class="num">22</span> <span class="num">80</span> <span class="num">443</span> <span class="num">3306</span> <span class="num">8080</span>)
+
+<span class="cmt"># Access an element</span>
+<span class="cmd">echo</span> <span class="str">"First port: ${ports[0]}"</span>
+
+<span class="cmt"># Loop through all elements</span>
+<span class="kw">for</span> p <span class="kw">in</span> <span class="str">"${ports[@]}"</span>; <span class="kw">do</span>
+    <span class="cmd">echo</span> <span class="str">"Checking port $p"</span>
+<span class="kw">done</span>
+
+<span class="cmt"># Array length</span>
+<span class="cmd">echo</span> <span class="str">"Total ports: ${#ports[@]}"</span></code>
         </div>
 
-        <!-- ===== WHO IS THIS BOOK FOR ===== -->
-        <h2 id="who">🎯 Who Is This Book For?</h2>
+        <h3>Reading User Input</h3>
+        <div class="code-block" data-lang="bash">
+<code><span class="cmd">read</span> -p <span class="str">"Enter target IP: "</span> target
+<span class="cmd">read</span> -sp <span class="str">"Enter password: "</span> password
+<span class="cmd">echo</span> <span class="str">"Target: $target"</span></code>
+        </div>
+
+        <div class="callout">
+            <strong>🔑 Key Rule:</strong> Always wrap your variables in double quotes: <code>"$var"</code>. This prevents word splitting and glob expansion — two of the most common sources of Bash bugs.
+        </div>
+    </section>
+
+    <!-- ===== 05 CONTROL FLOW ===== -->
+    <section class="section" id="control">
+        <span class="section-number">05 · CONTROL FLOW</span>
+        <h2 class="section-title">
+            <span class="icon">🔀</span>
+            Conditionals, Loops &amp; Logic
+        </h2>
         <p>
-            <strong>This guide is ideal for:</strong>
+            Control flow is what makes scripts intelligent. Instead of running commands blindly, your script can make decisions and repeat actions.
         </p>
-        <ul class="two-col-list">
-            <li>Beginners learning Linux</li>
-            <li>Computer science students</li>
-            <li>System administrators</li>
-            <li>DevOps engineers</li>
-            <li>Cybersecurity learners</li>
-            <li>Ethical hacking students</li>
-            <li>Anyone interested in automation with Bash</li>
+
+        <h3>If / Elif / Else</h3>
+        <div class="code-block" data-lang="bash">
+<code><span class="kw">if</span> [ <span class="str">"$USER"</span> = <span class="str">"root"</span> ]; <span class="kw">then</span>
+    <span class="cmd">echo</span> <span class="str">"[+] Running as root — full access"</span>
+<span class="kw">elif</span> [ <span class="str">"$USER"</span> = <span class="str">"admin"</span> ]; <span class="kw">then</span>
+    <span class="cmd">echo</span> <span class="str">"[!] Running as admin — limited access"</span>
+<span class="kw">else</span>
+    <span class="cmd">echo</span> <span class="str">"[-] Running as $USER — restricted"</span>
+<span class="kw">fi</span></code>
+        </div>
+
+        <h3>Comparison Operators</h3>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Operator</th><th>Meaning</th><th>Type</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>-eq</code></td><td>Equal to</td><td>Numeric</td></tr>
+                    <tr><td><code>-ne</code></td><td>Not equal to</td><td>Numeric</td></tr>
+                    <tr><td><code>-gt</code></td><td>Greater than</td><td>Numeric</td></tr>
+                    <tr><td><code>-lt</code></td><td>Less than</td><td>Numeric</td></tr>
+                    <tr><td><code>==</code> or <code>=</code></td><td>Equal to</td><td>String</td></tr>
+                    <tr><td><code>!=</code></td><td>Not equal</td><td>String</td></tr>
+                    <tr><td><code>-z</code></td><td>String is empty</td><td>String</td></tr>
+                    <tr><td><code>-n</code></td><td>String is not empty</td><td>String</td></tr>
+                    <tr><td><code>-f</code></td><td>File exists</td><td>File test</td></tr>
+                    <tr><td><code>-d</code></td><td>Directory exists</td><td>File test</td></tr>
+                    <tr><td><code>-x</code></td><td>File is executable</td><td>File test</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>For Loops</h3>
+        <p>Perfect for iterating over lists, files, IP ranges, or wordlist entries.</p>
+
+        <div class="code-block" data-lang="bash">
+<code><span class="cmt"># Loop over a range</span>
+<span class="kw">for</span> i <span class="kw">in</span> {1..10}; <span class="kw">do</span>
+    <span class="cmd">echo</span> <span class="str">"Attempt $i"</span>
+<span class="kw">done</span>
+
+<span class="cmt"># Loop over a file line by line</span>
+<span class="kw">while</span> <span class="cmd">IFS</span>= <span class="cmd">read</span> -r line; <span class="kw">do</span>
+    <span class="cmd">echo</span> <span class="str">"Processing: $line"</span>
+<span class="kw">done</span> &lt; targets.txt
+
+<span class="cmt"># C-style for loop</span>
+<span class="kw">for</span> ((i=<span class="num">1</span>; i&lt;=<span class="num">254</span>; i++)); <span class="kw">do</span>
+    <span class="cmd">ping</span> -c 1 -W 1 <span class="str">"192.168.1.$i"</span> &amp;&gt;/dev/null &amp;&amp; <span class="cmd">echo</span> <span class="str">"Live: 192.168.1.$i"</span>
+<span class="kw">done</span></code>
+        </div>
+
+        <h3>While &amp; Until Loops</h3>
+        <div class="code-block" data-lang="bash">
+<code><span class="cmt"># While loop — runs as long as condition is TRUE</span>
+<span class="var">count</span>=<span class="num">0</span>
+<span class="kw">while</span> [ $count -lt <span class="num">5</span> ]; <span class="kw">do</span>
+    <span class="cmd">echo</span> <span class="str">"Count: $count"</span>
+    ((count++))
+<span class="kw">done</span>
+
+<span class="cmt"># Until loop — runs UNTIL condition becomes TRUE</span>
+<span class="kw">until</span> [ -f <span class="str">"/tmp/flag"</span> ]; <span class="kw">do</span>
+    <span class="cmd">sleep</span> 1
+<span class="kw">done</span></code>
+        </div>
+
+        <h3>Case Statement</h3>
+        <p>Cleaner than multiple <code>if/elif</code> when matching many values.</p>
+
+        <div class="code-block" data-lang="bash">
+<code><span class="kw">case</span> <span class="str">"$1"</span> <span class="kw">in</span>
+    scan)    <span class="cmd">echo</span> <span class="str">"Running scan..."</span> ;;
+    exploit) <span class="cmd">echo</span> <span class="str">"Running exploit..."</span> ;;
+    report)  <span class="cmd">echo</span> <span class="str">"Generating report..."</span> ;;
+    *)       <span class="cmd">echo</span> <span class="str">"Usage: $0 {scan|exploit|report}"</span> ;;
+<span class="kw">esac</span></code>
+        </div>
+    </section>
+
+    <!-- ===== 06 FUNCTIONS ===== -->
+    <section class="section" id="functions">
+        <span class="section-number">06 · FUNCTIONS</span>
+        <h2 class="section-title">
+            <span class="icon">🧩</span>
+            Functions — Modular Scripting
+        </h2>
+        <p>
+            Functions let you package reusable blocks of code. They make scripts shorter, cleaner, and easier to debug.
+        </p>
+
+        <div class="code-block" data-lang="bash">
+<code><span class="cmt"># Define a function</span>
+<span class="kw">scan_port</span>() {
+    <span class="var">host</span>=<span class="str">"$1"</span>
+    <span class="var">port</span>=<span class="str">"$2"</span>
+    <span class="cmd">timeout</span> 1 bash -c <span class="str">"echo >/dev/tcp/$host/$port"</span> 2>/dev/null
+    <span class="kw">if</span> [ $? -eq <span class="num">0</span> ]; <span class="kw">then</span>
+        <span class="cmd">echo</span> <span class="str">"[+] $host:$port OPEN"</span>
+    <span class="kw">fi</span>
+}
+
+<span class="cmt"># Call the function</span>
+<span class="cmd">scan_port</span> <span class="str">"192.168.1.1"</span> <span class="num">22</span>
+<span class="cmd">scan_port</span> <span class="str">"192.168.1.1"</span> <span class="num">80</span>
+
+<span class="cmt"># Return values with echo (Bash functions return exit codes, not values)</span>
+<span class="kw">get_ip</span>() {
+    <span class="cmd">echo</span> <span class="str">"192.168.1.50"</span>
+}
+<span class="var">my_ip</span>=$(<span class="cmd">get_ip</span>)
+<span class="cmd">echo</span> <span class="str">"Target: $my_ip"</span></code>
+        </div>
+
+        <div class="callout info">
+            <strong>📌 Remember:</strong> Bash functions can only return exit codes (0–255) via <code>return</code>. To return actual data, use <code>echo</code> and capture it with <code>$(function_name)</code>.
+        </div>
+    </section>
+
+    <!-- ===== 07 PIPES ===== -->
+    <section class="section" id="pipes">
+        <span class="section-number">07 · PIPES &amp; REDIRECTION</span>
+        <h2 class="section-title">
+            <span class="icon">🔗</span>
+            Pipes, Redirection &amp; Streams
+        </h2>
+        <p>
+            Pipes and redirection are what make Bash so powerful. They let you connect commands together like Lego bricks — the output of one becomes the input of another.
+        </p>
+
+        <h3>The Three Streams</h3>
+        <ul>
+            <li><strong>stdin (0)</strong> — Standard input (keyboard, or piped data)</li>
+            <li><strong>stdout (1)</strong> — Standard output (normal results)</li>
+            <li><strong>stderr (2)</strong> — Standard error (error messages)</li>
         </ul>
-        <p>
-            No advanced programming experience is required.
-        </p>
 
-        <!-- ===== PRACTICAL LEARNING ===== -->
-        <h2 id="practical">🛠️ Practical, Hands-On Learning</h2>
-        <p>
-            Rather than focusing only on theory, this book emphasizes practical scripting techniques. You'll write scripts that automate everyday Linux tasks and strengthen your understanding of shell programming in a responsible and ethical manner.
-        </p>
+        <h3>Pipe Operator <code>|</code></h3>
+        <p>Send the output of one command directly into another:</p>
 
-        <!-- ===== WHY BASH MATTERS ===== -->
-        <h2 id="matters">🔧 Why Bash Still Matters</h2>
-        <p>
-            Although many programming languages are available today, Bash remains one of the fastest and most effective ways to automate tasks on Linux. It integrates seamlessly with common Unix utilities and is widely used across servers, cloud environments, and development workflows.
-        </p>
-        <p>
-            Learning Bash provides a strong foundation that complements other languages such as Python and Go.
-        </p>
+        <div class="code-block" data-lang="bash">
+<code><span class="cmt"># Find all IPs in a log file and count unique ones</span>
+<span class="cmd">cat</span> access.log | <span class="cmd">grep</span> -oE <span class="str">'[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+'</span> | <span class="cmd">sort</span> -u | <span class="cmd">wc</span> -l
 
-        <!-- ===== START YOUR JOURNEY ===== -->
-        <h2 id="start">🚀 Start Your Bash Journey</h2>
-        <p>
-            Whether your goal is to automate Linux administration, improve your scripting skills, or build a stronger foundation for cybersecurity, <strong>Bash Scripting for Ethical Hackers</strong> offers practical guidance and real-world examples to help you progress.
-        </p>
-
-        <!-- ===== FINAL CTA ===== -->
-        <div class="book-highlight" style="border-color:#ffcc00;background:linear-gradient(135deg,rgba(255,204,0,0.05),rgba(0,255,136,0.05));">
-            <p class="highlight-title" style="color:#ffcc00;">$> Ready to Automate Like a Pro?</p>
-            <p style="color:#b0b8c8;font-size:16px;">
-                Spend less time repeating commands and more time solving problems.
-            </p>
-            <br/>
-            <a class="main-link" href="https://www.amazon.com/dp/B0H8KFK6LS" target="_blank" rel="noopener" 
-               style="display:inline-block;padding:15px 42px;background:linear-gradient(135deg,#ffcc00,#ff9900);color:#000000 !important;border-radius:10px;font-weight:700;font-size:16px;text-decoration:none;transition:all 0.3s ease;letter-spacing:0.5px;">
-                🛒 Buy Now on Amazon
-            </a>
-            <p class="small-note" style="color:#6a7290 !important;font-size:13px;margin-top:12px;">
-                Start your automation journey today — Get your copy now!
-            </p>
+<span class="cmt"># Check for open SSH port via Nmap output</span>
+<span class="cmd">nmap</span> -p 22 192.168.1.1 | <span class="cmd">grep</span> <span class="str">"open"</span></code>
         </div>
 
-        <!-- ===== RESPONSIBLE USE ===== -->
-        <div class="responsible-box">
-            <p class="shield-text">🛡️ Always Use Your Skills Responsibly</p>
-            <p style="color:#ff6b6b !important;font-size:14px;">
-                Perform security testing only on systems you own or have explicit authorization to assess.
-            </p>
-            <p style="color:#ff6b6b !important;font-size:13px;margin-top:8px !important;">
-                Happy scripting — and always use your skills ethically!
-            </p>
+        <h3>Redirection Operators</h3>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Operator</th><th>Meaning</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>&gt;</code></td><td>Redirect stdout to a file (overwrite)</td></tr>
+                    <tr><td><code>&gt;&gt;</code></td><td>Redirect stdout to a file (append)</td></tr>
+                    <tr><td><code>&lt;</code></td><td>Redirect file as stdin</td></tr>
+                    <tr><td><code>2&gt;</code></td><td>Redirect stderr to a file</td></tr>
+                    <tr><td><code>2&gt;&amp;1</code></td><td>Redirect stderr to same place as stdout</td></tr>
+                    <tr><td><code>&amp;&gt;</code></td><td>Redirect both stdout and stderr</td></tr>
+                    <tr><td><code>&gt;/dev/null</code></td><td>Discard output (silence)</td></tr>
+                </tbody>
+            </table>
         </div>
 
-        <hr/>
+        <div class="code-block" data-lang="bash">
+<code><span class="cmt"># Save scan results to a file, suppress errors</span>
+<span class="cmd">nmap</span> -sV 192.168.1.1 &gt; scan.txt 2&gt;/dev/null
 
-        <!-- ===== SHARE SECTION ===== -->
-        <div class="share-section">
-            <p>📤 Share this book recommendation with your network</p>
-            <div class="share-buttons">
-                <a href="#" onclick="window.open('https://twitter.com/intent/tweet?text=Bash%20Scripting%20for%20Ethical%20Hackers%20-%20Why%20Every%20Cybersecurity%20Professional%20Should%20Learn%20Bash!%20%23Bash%20%23CyberSecurity%20%23EthicalHacking%20%23Linux','_blank');return false;">
-                    🐦 Twitter
-                </a>
-                <a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(window.location.href),'_blank');return false;">
-                    📘 Facebook
-                </a>
-                <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank');return false;">
-                    💼 LinkedIn
-                </a>
+<span class="cmt"># Append results</span>
+<span class="cmd">echo</span> <span class="str">"[+] Scan complete at $(date)"</span> &gt;&gt; scan.txt
+
+<span class="cmt"># Silence both output streams</span>
+<span class="cmd">ping</span> -c 1 192.168.1.1 &amp;&gt;/dev/null</code>
+        </div>
+    </section>
+
+    <!-- ===== 08 TEXT PROCESSING ===== -->
+    <section class="section" id="text">
+        <span class="section-number">08 · TEXT PROCESSING</span>
+        <h2 class="section-title">
+            <span class="icon">✂️</span>
+            Text Processing — The Hacker's Scalpel
+        </h2>
+        <p>
+            90% of a pentester's job involves parsing text: extracting IPs from logs, filtering Nmap output, and pulling URLs from web pages. Master these three tools and you'll never struggle again.
+        </p>
+
+        <h3>grep — Search &amp; Filter</h3>
+        <div class="code-block" data-lang="bash">
+<code><span class="cmt"># Basic search</span>
+<span class="cmd">grep</span> <span class="str">"error"</span> /var/log/syslog
+
+<span class="cmt"># Case-insensitive</span>
+<span class="cmd">grep</span> -i <span class="str">"failed"</span> auth.log
+
+<span class="cmt"># Recursive search</span>
+<span class="cmd">grep</span> -r <span class="str">"password"</span> /var/www/
+
+<span class="cmt"># Invert match (show lines NOT containing pattern)</span>
+<span class="cmd">grep</span> -v <span class="str">"#"</span> config.conf
+
+<span class="cmt"># Extended regex — extract IPs</span>
+<span class="cmd">grep</span> -oE <span class="str">'([0-9]{1,3}\.){3}[0-9]{1,3}'</span> access.log</code>
+        </div>
+
+        <h3>awk — Column Extraction</h3>
+        <div class="code-block" data-lang="bash">
+<code><span class="cmt"># Print first column of a file</span>
+<span class="cmd">awk</span> <span class="str">'{print $1}'</span> users.txt
+
+<span class="cmt"># Print last column</span>
+<span class="cmd">awk</span> <span class="str">'{print $NF}'</span> data.txt
+
+<span class="cmt"># Filter by condition</span>
+<span class="cmd">awk</span> <span class="str">'$3 > 1000 {print $1, $3}'</span> traffic.log
+
+<span class="cmt"># Custom delimiter (CSV)</span>
+<span class="cmd">awk</span> -F<span class="str">','</span> <span class="str">'{print $2}'</span> users.csv</code>
+        </div>
+
+        <h3>sed — Stream Editing</h3>
+        <div class="code-block" data-lang="bash">
+<code><span class="cmt"># Replace text</span>
+<span class="cmd">sed</span> <span class="str">'s/old/new/g'</span> file.txt
+
+<span class="cmt"># Delete lines matching a pattern</span>
+<span class="cmd">sed</span> <span class="str">'/^#/d'</span> config.conf
+
+<span class="cmt"># Print only specific lines (5 to 10)</span>
+<span class="cmd">sed</span> -n <span class="str">'5,10p'</span> file.txt
+
+<span class="cmt"># In-place edit (careful!)</span>
+<span class="cmd">sed</span> -i <span class="str">'s/localhost/127.0.0.1/g'</span> config.ini</code>
+        </div>
+
+        <h3>Other Must-Know Text Tools</h3>
+        <div class="tool-list">
+            <div class="tool-item"><span class="t-ico">🔪</span> <code>cut</code> — Extract fields</div>
+            <div class="tool-item"><span class="t-ico">🔢</span> <code>sort</code> — Sort lines</div>
+            <div class="tool-item"><span class="t-ico">📊</span> <code>uniq</code> — Remove duplicates</div>
+            <div class="tool-item"><span class="t-ico">🔢</span> <code>wc</code> — Count lines/words</div>
+            <div class="tool-item"><span class="t-ico">🔤</span> <code>tr</code> — Translate characters</div>
+            <div class="tool-item"><span class="t-ico">📏</span> <code>head/tail</code> — First/last lines</div>
+            <div class="tool-item"><span class="t-ico">🔗</span> <code>paste</code> — Merge files</div>
+            <div class="tool-item"><span class="t-ico">🌐</span> <code>jq</code> — Parse JSON</div>
+        </div>
+    </section>
+
+    <!-- ===== 09 TOOLS ===== -->
+    <section class="section" id="tools">
+        <span class="section-number">09 · ESSENTIAL TOOLS</span>
+        <h2 class="section-title">
+            <span class="icon">🔧</span>
+            Tools Every Bash Hacker Uses
+        </h2>
+        <p>
+            Bash scripts become truly powerful when they orchestrate these security tools. Here's what you'll use daily:
+        </p>
+        <div class="tool-list">
+            <div class="tool-item"><span class="t-ico">🌐</span> Nmap — Port scanning</div>
+            <div class="tool-item"><span class="t-ico">💥</span> Metasploit — Exploitation</div>
+            <div class="tool-item"><span class="t-ico">🔍</span> Gobuster — Directory brute-force</div>
+            <div class="tool-item"><span class="t-ico">🕷️</span> Nikto — Web scanner</div>
+            <div class="tool-item"><span class="t-ico">🔐</span> Hydra — Login brute-force</div>
+            <div class="tool-item"><span class="t-ico">📡</span> Netcat — Network swiss army knife</div>
+            <div class="tool-item"><span class="t-ico">🦈</span> Wireshark — Packet analysis</div>
+            <div class="tool-item"><span class="t-ico">🔎</span> Dig / nslookup — DNS recon</div>
+            <div class="tool-item"><span class="t-ico">📥</span> Curl / Wget — HTTP requests</div>
+            <div class="tool-item"><span class="t-ico">🛡️</span> OpenSSL — Crypto toolkit</div>
+            <div class="tool-item"><span class="t-ico">🔬</span> tcpdump — Packet capture</div>
+            <div class="tool-item"><span class="t-ico">📦</span> sqlmap — SQL injection</div>
+        </div>
+
+        <h3>Example: Chaining Nmap + Grep + Awk</h3>
+        <div class="code-block" data-lang="bash">
+<code><span class="cmt"># Extract all open ports from an Nmap scan</span>
+<span class="cmd">nmap</span> -p- -T4 192.168.1.1 -oG - | <span class="cmd">grep</span> <span class="str">"open"</span> | <span class="cmd">awk</span> <span class="str">'{print $1, $2}'</span>
+
+<span class="cmt"># Find live hosts on a /24 subnet</span>
+<span class="kw">for</span> i <span class="kw">in</span> {1..254}; <span class="kw">do</span>
+    <span class="cmd">ping</span> -c 1 -W 1 <span class="str">"192.168.1.$i"</span> &gt;/dev/null 2&gt;&amp;1 &amp;&amp; <span class="cmd">echo</span> <span class="str">"192.168.1.$i UP"</span> &amp;
+<span class="kw">done</span>
+<span class="cmd">wait</span></code>
+        </div>
+    </section>
+
+    <!-- ===== 10 EXAMPLES ===== -->
+    <section class="section" id="examples">
+        <span class="section-number">10 · REAL SCRIPTS</span>
+        <h2 class="section-title">
+            <span class="icon">⚙️</span>
+            Real-World Hacking Scripts
+        </h2>
+
+        <h3>Script 1: Multi-Threaded Ping Sweeper</h3>
+        <p>Quickly discover live hosts on a subnet using parallel background jobs.</p>
+        <div class="code-block" data-lang="bash">
+<code><span class="cmt">#!/bin/bash</span>
+<span class="cmt"># Ping sweep an entire /24 subnet</span>
+
+<span class="var">subnet</span>=<span class="str">"${1:-192.168.1}"</span>
+
+<span class="cmd">echo</span> <span class="str">"[*] Sweeping $subnet.0/24..."</span>
+<span class="kw">for</span> i <span class="kw">in</span> {1..254}; <span class="kw">do</span>
+    (
+        <span class="cmd">ping</span> -c 1 -W 1 <span class="str">"$subnet.$i"</span> &gt;/dev/null 2&gt;&amp;1 &amp;&amp; \
+            <span class="cmd">echo</span> <span class="str">"[+] $subnet.$i is ALIVE"</span>
+    ) &amp;
+<span class="kw">done</span>
+<span class="cmd">wait</span>
+<span class="cmd">echo</span> <span class="str">"[✓] Sweep complete."</span></code>
+        </div>
+
+        <h3>Script 2: Simple Port Scanner</h3>
+        <p>Uses Bash's built-in <code>/dev/tcp</code> — no external tools needed.</p>
+        <div class="code-block" data-lang="bash">
+<code><span class="cmt">#!/bin/bash</span>
+<span class="cmt"># Port scanner using /dev/tcp</span>
+
+<span class="var">target</span>=<span class="str">"$1"</span>
+<span class="var">ports</span>=(21 22 23 25 53 80 110 143 443 445 3306 3389 8080)
+
+<span class="kw">if</span> [ -z <span class="str">"$target"</span> ]; <span class="kw">then</span>
+    <span class="cmd">echo</span> <span class="str">"Usage: $0 &lt;target-ip&gt;"</span>
+    <span class="cmd">exit</span> 1
+<span class="kw">fi</span>
+
+<span class="cmd">echo</span> <span class="str">"[*] Scanning $target..."</span>
+<span class="kw">for</span> port <span class="kw">in</span> <span class="str">"${ports[@]}"</span>; <span class="kw">do</span>
+    <span class="cmd">timeout</span> 1 bash -c <span class="str">"echo >/dev/tcp/$target/$port"</span> 2&gt;/dev/null
+    <span class="kw">if</span> [ $? -eq 0 ]; <span class="kw">then</span>
+        <span class="cmd">echo</span> <span class="str">"  [+] Port $port OPEN"</span>
+    <span class="kw">fi</span>
+<span class="kw">done</span>
+<span class="cmd">echo</span> <span class="str">"[✓] Done."</span></code>
+        </div>
+
+        <h3>Script 3: Web Directory Brute-Forcer</h3>
+        <p>Lightweight Gobuster alternative using <code>curl</code>.</p>
+        <div class="code-block" data-lang="bash">
+<code><span class="cmt">#!/bin/bash</span>
+<span class="cmt"># Simple web directory brute-forcer</span>
+
+<span class="var">url</span>=<span class="str">"$1"</span>
+<span class="var">wordlist</span>=<span class="str">"$2"</span>
+
+<span class="kw">if</span> [ ! -f <span class="str">"$wordlist"</span> ]; <span class="kw">then</span>
+    <span class="cmd">echo</span> <span class="str">"Wordlist not found: $wordlist"</span>
+    <span class="cmd">exit</span> 1
+<span class="kw">fi</span>
+
+<span class="kw">while</span> <span class="cmd">IFS</span>= <span class="cmd">read</span> -r dir; <span class="kw">do</span>
+    <span class="var">code</span>=$(<span class="cmd">curl</span> -s -o /dev/null -w <span class="str">"%{http_code}"</span> <span class="str">"$url/$dir"</span>)
+    <span class="kw">if</span> [ <span class="str">"$code"</span> != <span class="str">"404"</span> ]; <span class="kw">then</span>
+        <span class="cmd">echo</span> <span class="str">"[+] $url/$dir → $code"</span>
+    <span class="kw">fi</span>
+<span class="kw">done</span> &lt; <span class="str">"$wordlist"</span></code>
+        </div>
+
+        <h3>Script 4: Log Monitoring for Suspicious Logins</h3>
+        <p>Blue-team style monitoring of SSH authentication logs.</p>
+        <div class="code-block" data-lang="bash">
+<code><span class="cmt">#!/bin/bash</span>
+<span class="cmt"># Watch for failed SSH logins</span>
+
+<span class="var">logfile</span>=<span class="str">"/var/log/auth.log"</span>
+
+<span class="cmd">echo</span> <span class="str">"[*] Monitoring $logfile for failed logins..."</span>
+<span class="cmd">tail</span> -Fn0 <span class="str">"$logfile"</span> | <span class="kw">while</span> <span class="cmd">read</span> -r line; <span class="kw">do</span>
+    <span class="kw">if</span> <span class="cmd">echo</span> <span class="str">"$line"</span> | <span class="cmd">grep</span> -q <span class="str">"Failed password"</span>; <span class="kw">then</span>
+        <span class="var">ip</span>=$(<span class="cmd">echo</span> <span class="str">"$line"</span> | <span class="cmd">grep</span> -oE <span class="str">'([0-9]{1,3}\.){3}[0-9]{1,3}'</span>)
+        <span class="cmd">echo</span> <span class="str">"[!] Brute-force attempt from: $ip"</span>
+    <span class="kw">fi</span>
+<span class="kw">done</span></code>
+        </div>
+    </section>
+
+    <!-- ===== 11 USE CASES ===== -->
+    <section class="section" id="usecases">
+        <span class="section-number">11 · USE CASES</span>
+        <h2 class="section-title">
+            <span class="icon">🎯</span>
+            Where Bash Shines in Ethical Hacking
+        </h2>
+        <div class="use-grid">
+            <div class="use-card">
+                <span class="use-icon">🔎</span>
+                <h4>Recon Automation</h4>
+                <p>Loop through subdomains, run <code>dig</code> and <code>whois</code>, and log results automatically.</p>
+            </div>
+            <div class="use-card">
+                <span class="use-icon">🌐</span>
+                <h4>Network Sweeping</h4>
+                <p>Ping sweep an entire subnet and identify live hosts in seconds with parallel jobs.</p>
+            </div>
+            <div class="use-card">
+                <span class="use-icon">🔧</span>
+                <h4>Tool Wrapping</h4>
+                <p>Wrap <code>nmap</code>, <code>gobuster</code>, or <code>hydra</code> into repeatable workflows.</p>
+            </div>
+            <div class="use-card">
+                <span class="use-icon">📊</span>
+                <h4>Log Parsing</h4>
+                <p>Extract IPs, errors, and patterns from massive log files with <code>grep</code> + <code>awk</code>.</p>
+            </div>
+            <div class="use-card">
+                <span class="use-icon">🛡️</span>
+                <h4>Blue Team Defense</h4>
+                <p>Monitor auth logs and alert on suspicious SSH login attempts in real time.</p>
+            </div>
+            <div class="use-card">
+                <span class="use-icon">🚀</span>
+                <h4>Payload Delivery</h4>
+                <p>Automate file transfers, reverse shells, and post-exploitation cleanup.</p>
+            </div>
+            <div class="use-card">
+                <span class="use-icon">📁</span>
+                <h4>Report Generation</h4>
+                <p>Collect scan results and format them into clean reports automatically.</p>
             </div>
         </div>
+    </section>
 
-    </div>
+    <!-- ===== 12 BEST PRACTICES ===== -->
+    <section class="section" id="best">
+        <span class="section-number">12 · BEST PRACTICES</span>
+        <h2 class="section-title">
+            <span class="icon">✅</span>
+            Best Practices for Clean, Safe Scripts
+        </h2>
+        <ol>
+            <li><strong>Always quote variables</strong> — Use <code>"$var"</code> to prevent word splitting and glob expansion.</li>
+            <li><strong>Use <code>set -euo pipefail</code></strong> — Fail fast on errors, undefined variables, and pipe failures.</li>
+            <li><strong>Comment generously</strong> — Future you (and teammates) will thank you.</li>
+            <li><strong>Validate all input</strong> — Never trust user-supplied arguments; sanitize before use.</li>
+            <li><strong>Log everything</strong> — Redirect output to timestamped files for audit trails.</li>
+            <li><strong>Use functions</strong> — Keep scripts modular; avoid one giant block of code.</li>
+            <li><strong>Handle errors explicitly</strong> — Check exit codes with <code>$?</code> and act on failures.</li>
+            <li><strong>Test in a lab</strong> — Use VirtualBox, VMware, or Docker before running on real targets.</li>
+            <li><strong>Use <code>mktemp</code> for temp files</strong> — Avoid predictable filenames in <code>/tmp</code>.</li>
+            <li><strong>Never hardcode credentials</strong> — Use environment variables or config files with restricted permissions.</li>
+        </ol>
+
+        <h3>The Magic Line: set -euo pipefail</h3>
+        <div class="code-block" data-lang="bash">
+<code><span class="cmt">#!/bin/bash</span>
+<span class="cmd">set</span> -euo pipefail
+<span class="cmt"># -e : Exit immediately if a command fails</span>
+<span class="cmt"># -u : Treat unset variables as errors</span>
+<span class="cmt"># -o pipefail : Catch failures in piped commands</span></code>
+        </div>
+        <div class="callout">
+            <strong>💡 Pro Tip:</strong> Add <code>set -x</code> temporarily when debugging. It prints every command before executing it, making it easy to spot where things go wrong.
+        </div>
+    </section>
+
+    <!-- ===== 13 ERRORS ===== -->
+    <section class="section" id="errors">
+        <span class="section-number">13 · ERROR HANDLING</span>
+        <h2 class="section-title">
+            <span class="icon">🛠️</span>
+            Robust Error Handling
+        </h2>
+        <p>
+            Professional scripts don't crash silently. They detect problems, log them, and either recover or exit cleanly.
+        </p>
+
+        <h3>Check Exit Codes</h3>
+        <div class="code-block" data-lang="bash">
+<code><span class="cmd">nmap</span> -sV 192.168.1.1 -oN scan.txt
+<span class="kw">if</span> [ $? -ne <span class="num">0</span> ]; <span class="kw">then</span>
+    <span class="cmd">echo</span> <span class="str">"[!] Nmap failed. Check target and permissions."</span> &gt;&amp;2
+    <span class="cmd">exit</span> 1
+<span class="kw">fi</span>
+<span class="cmd">echo</span> <span class="str">"[+] Scan completed successfully."</span></code>
+        </div>
+
+        <h3>Trap Signals</h3>
+        <p>Clean up on exit — even if the user presses <kbd>Ctrl</kbd>+<kbd>C</kbd>.</p>
+        <div class="code-block" data-lang="bash">
+<code><span class="kw">cleanup</span>() {
+    <span class="cmd">echo</span> <span class="str">"[*] Cleaning up temporary files..."</span>
+    <span class="cmd">rm</span> -f <span class="str">"/tmp/scan_$$.tmp"</span>
+}
+
+<span class="cmd">trap</span> cleanup EXIT INT TERM
+
+<span class="var">tmpfile</span>=<span class="str">"/tmp/scan_$$.tmp"</span>
+<span class="cmd">nmap</span> -sV 192.168.1.1 &gt; <span class="str">"$tmpfile"</span></code>
+        </div>
+
+        <h3>Custom Error Function</h3>
+        <div class="code-block" data-lang="bash">
+<code><span class="kw">error</span>() {
+    <span class="cmd">echo</span> <span class="str">"[ERROR] $1"</span> &gt;&amp;2
+    <span class="cmd">exit</span> 1
+}
+
+[ $# -lt <span class="num">1</span> ] &amp;&amp; <span class="cmd">error</span> <span class="str">"Usage: $0 &lt;target&gt;"</span>
+[ ! -f <span class="str">"$1"</span> ] &amp;&amp; <span class="cmd">error</span> <span class="str">"File not found: $1"</span></code>
+        </div>
+    </section>
+
+    <!-- ===== 14 ADVANCED ===== -->
+    <section class="section" id="advanced">
+        <span class="section-number">14 · ADVANCED</span>
+        <h2 class="section-title">
+            <span class="icon">🚀</span>
+            Advanced Topics
+        </h2>
+
+        <h3>Arithmetic in Bash</h3>
+        <div class="code-block" data-lang="bash">
+<code><span class="var">a</span>=<span class="num">10</span>
+<span class="var">b</span>=<span class="num">3</span>
+
+<span class="cmd">echo</span> $((a + b))    <span class="cmt"># 13</span>
+<span class="cmd">echo</span> $((a - b))    <span class="cmt"># 7</span>
+<span class="cmd">echo</span> $((a * b))    <span class="cmt"># 30</span>
+<span class="cmd">echo</span> $((a / b))    <span class="cmt"># 3</span>
+<span class="cmd">echo</span> $((a % b))    <span class="cmt"># 1</span>
+<span class="cmd">echo</span> $((a ** b))   <span class="cmt"># 1000</span>
+
+<span class="cmt"># Increment</span>
+((a++))
+<span class="cmd">echo</span> <span class="str">"$a"</span>  <span class="cmt"># 11</span></code>
+        </div>
+
+        <h3>Process Substitution</h3>
+        <p>Treat command output as a file — powerful for diffing and comparisons.</p>
+        <div class="code-block" data-lang="bash">
+<code><span class="cmt"># Compare output of two commands</span>
+<span class="cmd">diff</span> &lt;(<span class="cmd">nmap</span> 192.168.1.1) &lt;(<span class="cmd">nmap</span> 192.168.1.2)
+
+<span class="cmt"># Feed multiple inputs to a single command</span>
+<span class="cmd">cat</span> &lt;(<span class="cmd">echo</span> <span class="str">"host1"</span>) &lt;(<span class="cmd">echo</span> <span class="str">"host2"</span>) &gt; hosts.txt</code>
+        </div>
+
+        <h3>Background Jobs &amp; Parallelism</h3>
+        <div class="code-block" data-lang="bash">
+<code><span class="cmt"># Run tasks in parallel and wait for all to finish</span>
+<span class="kw">for</span> ip <span class="kw">in</span> 192.168.1.{1..10}; <span class="kw">do</span>
+    (<span class="cmd">nmap</span> -T4 -p 22,80,443 <span class="str">"$ip"</span> &gt; <span class="str">"scan_$ip.txt"</span>) &amp;
+<span class="kw">done</span>
+<span class="cmd">wait</span>
+<span class="cmd">echo</span> <span class="str">"[+] All scans finished."</span></code>
+        </div>
+
+        <h3>Here Documents (Heredoc)</h3>
+        <div class="code-block" data-lang="bash">
+<code><span class="cmd">cat</span> &lt;&lt;EOF &gt; payload.sh
+#!/bin/bash
+echo "Hello from payload"
+EOF
+
+<span class="cmd">chmod</span> +x payload.sh</code>
+        </div>
+
+        <h3>Reading Files Safely</h3>
+        <div class="code-block" data-lang="bash">
+<code><span class="cmt"># Preserve whitespace and backslashes with IFS= and -r</span>
+<span class="kw">while</span> <span class="cmd">IFS</span>= <span class="cmd">read</span> -r line; <span class="kw">do</span>
+    <span class="cmd">echo</span> <span class="str">"Line: $line"</span>
+<span class="kw">done</span> &lt; targets.txt</code>
+        </div>
+
+        <h3>String Manipulation</h3>
+        <div class="code-block" data-lang="bash">
+<code><span class="var">str</span>=<span class="str">"https://example.com/path"</span>
+
+<span class="cmd">echo</span> ${str#https://}       <span class="cmt"># example.com/path (remove prefix)</span>
+<span class="cmd">echo</span> ${str%.com*}          <span class="cmt"># https://example (remove suffix)</span>
+<span class="cmd">echo</span> ${str/https/http}     <span class="cmt"># http://example.com/path (replace)</span>
+<span class="cmd">echo</span> ${#str}               <span class="cmt"># string length</span>
+<span class="cmd">echo</span> ${str^^}              <span class="cmt"># HTTPS://EXAMPLE.COM/PATH</span>
+<span class="cmd">echo</span> ${str,,}              <span class="cmt"># lowercase</span></code>
+        </div>
+    </section>
+
+    <!-- ===== 15 LEGAL ===== -->
+    <section class="section" id="legal">
+        <span class="section-number">15 · LEGAL &amp; ETHICS</span>
+        <h2 class="section-title">
+            <span class="icon">⚖️</span>
+            Legal &amp; Ethical Boundaries
+        </h2>
+        <div class="callout warn">
+            <strong>⚠️ Critical Warning:</strong> Never — under any circumstances — run scanning, brute-force, or exploitation scripts against systems you do not own or have explicit written permission to test. Unauthorized access is a criminal offense in virtually every country.
+        </div>
+
+        <h3>The Rules of Engagement</h3>
+        <ul>
+            <li><strong>Always get written authorization</strong> — A signed scope document is your legal shield.</li>
+            <li><strong>Stay in scope</strong> — Only test the IPs, domains, and applications explicitly listed.</li>
+            <li><strong>Don't cause damage</strong> — No DoS attacks, no data destruction, no service disruption.</li>
+            <li><strong>Protect data</strong> — If you find sensitive data, report it — don't leak or misuse it.</li>
+            <li><strong>Document everything</strong> — Timestamps, commands, outputs — for the final report.</li>
+            <li><strong>Report responsibly</strong> — Disclose vulnerabilities through proper channels.</li>
+        </ul>
+
+        <h3>Legal Practice Environments</h3>
+        <div class="tool-list">
+            <div class="tool-item"><span class="t-ico">🧪</span> TryHackMe</div>
+            <div class="tool-item"><span class="t-ico">🎯</span> Hack The Box</div>
+            <div class="tool-item"><span class="t-ico">💀</span> VulnHub</div>
+            <div class="tool-item"><span class="t-ico">🐐</span> OWASP Juice Shop</div>
+            <div class="tool-item"><span class="t-ico">🕸️</span> DVWA</div>
+            <div class="tool-item"><span class="t-ico">🖥️</span> Your own VMs</div>
+            <div class="tool-item"><span class="t-ico">☁️</span> Cloud labs (AWS/Azure)</div>
+            <div class="tool-item"><span class="t-ico">🐉</span> Kali Linux VM</div>
+        </div>
+
+        <div class="callout info">
+            <strong>💡 Ethical Hacker's Oath:</strong> With great power comes great responsibility. Your skills should protect, not harm. Always operate within legal and ethical boundaries.
+        </div>
+    </section>
+
+    <!-- ===== 16 CONCLUSION ===== -->
+    <section class="section" id="conclusion">
+        <span class="section-number">16 · CONCLUSION</span>
+        <h2 class="section-title">
+            <span class="icon">🎓</span>
+            Final Thoughts
+        </h2>
+        <p>
+            Bash scripting is the <strong>backbone of Linux-based ethical hacking</strong>. It's the skill that transforms you from someone who runs tools into someone who <em>orchestrates entire operations</em>. Every professional penetration tester, red teamer, and security engineer has Bash in their toolbox — and for good reason.
+        </p>
+        <p>
+            The journey from beginner to expert follows a clear path:
+        </p>
+        <ol>
+            <li><strong>Learn the basics</strong> — commands, variables, pipes, redirection.</li>
+            <li><strong>Practice daily</strong> — automate small tasks: file cleanup, log parsing, backups.</li>
+            <li><strong>Chain tools</strong> — combine Nmap, Gobuster, and Curl into workflows.</li>
+            <li><strong>Build your own scripts</strong> — port scanners, recon bots, log monitors.</li>
+            <li><strong>Study real code</strong> — read open-source pentest scripts on GitHub.</li>
+            <li><strong>Contribute back</strong> — share your tools with the community.</li>
+        </ol>
+        <p>
+            Remember: the terminal is your weapon, and Bash is your language. Master it, and you'll be able to build <strong>custom tooling that rivals commercial products</strong> — all with plain text and a shell.
+        </p>
+        <div class="callout">
+            <strong>🚀 Next Steps:</strong> Start small. Automate one repetitive task today. Then chain two tools together. Then build a full recon script. Before you know it, you'll be writing security tooling that other hackers use.
+        </div>
+        <p style="text-align:center; margin-top: 30px; font-size: 17px; color: #00ff88; font-weight: 600;">
+            Happy hacking — ethically. 🐉
+        </p>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="page-footer">
+        <p>© 2025 · <span class="brand">⚡ cyber·sume</span> · Bash Scripting for Ethical Hackers</p>
+        <p style="margin-top: 8px; font-size: 12px;">Complete Guide · Beginner to Advanced · Updated 2025</p>
+    </footer>
 
 </div>
+
+</body>
+</html>
